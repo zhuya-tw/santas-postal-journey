@@ -41,7 +41,7 @@
     },
     {
       "id": "fr",
-      "url": "https://www.laposte.fr/modeles-lettres/lettre-pere-noel",
+      "url": "https://api.boutique.laposte.fr/modeles-lettres/lettre-pere-noel",
       "anchors": [
         "33500 Libourne",
         "adresse complète",
