@@ -1,0 +1,10 @@
+{
+  "month": "2026-11",
+  "checked_commit": "49c9d7489913fe44baa3a73088b0108c00fae989",
+  "catalogue_tests": "passed",
+  "office_count": 14,
+  "cutoff_years": [
+    "2025",
+    "2026"
+  ]
+}
