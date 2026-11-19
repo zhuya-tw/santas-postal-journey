@@ -14,8 +14,15 @@ on:
         description: 同時查核官方郵政來源
         type: boolean
         default: true
+      maintenance_only:
+        description: 只執行健康檢查並儲存維護紀錄
+        type: boolean
+        default: false
   schedule:
     - cron: '23 1 * 9-12 1,4'
+    - cron: '37 1 12 * *'
+env:
+  MAINTENANCE_ONLY: ${{ github.event.schedule == '37 1 12 * *' || inputs.maintenance_only || false }}
 permissions:
   contents: read
 concurrency:
@@ -43,13 +50,25 @@ jobs:
         run: |
           python -m unittest discover -s tests
           node --test tests/catalog.test.mjs
+      - name: Record monthly health check
+        if: env.MAINTENANCE_ONLY == 'true'
+        run: |
+          export CHECK_MONTH="$(TZ=Asia/Taipei date +%Y-%m)"
+          export CHECK_COMMIT="$(git rev-parse HEAD)"
+          python scripts/record_health.py
+          git add manual/last-health-check.json
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Record passing postal catalogue checks for $CHECK_MONTH"
+          git push origin HEAD
       - name: Inspect official sources
-        if: github.event_name == 'schedule' || inputs.check_sources
+        if: env.MAINTENANCE_ONLY != 'true' && (github.event_name == 'schedule' || inputs.check_sources)
         run: |
           python -m pip install -r requirements.txt
           python scripts/check_sources.py --apply
       - name: Save reviewed-by-rule data
-        if: github.event_name == 'schedule' || inputs.check_sources
+        if: env.MAINTENANCE_ONLY != 'true' && (github.event_name == 'schedule' || inputs.check_sources)
         run: |
           if git diff --quiet -- site/data/catalog.json; then exit 0; fi
           python -m unittest discover -s tests
@@ -59,6 +78,7 @@ jobs:
           git commit -m "Add validated Chunghwa Post seasonal cutoff table"
           git push origin HEAD
       - name: Upload verified site
+        if: env.MAINTENANCE_ONLY != 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
@@ -95,6 +115,7 @@ jobs:
             }
   deploy:
     needs: build
+    if: github.event.schedule != '37 1 12 * *' && !inputs.maintenance_only
     runs-on: ubuntu-latest
     permissions:
       pages: write

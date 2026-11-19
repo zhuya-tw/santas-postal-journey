@@ -2,7 +2,9 @@
 
 ## 固定排程
 
-每年 9–12 月，台灣時間週一、週四 09:23 查核。GitHub 可能延後排程。排程在預設分支運作，手動執行可用來補跑或重新部署。公開儲存庫長期未有活動時，GitHub 可能在 60 天後停用排程。每年 9 月初查看 Actions 是否啟用並手動跑一次，再檢視當年待審核 Issue。
+每年 9–12 月，台灣時間週一、週四 09:23 查核官方郵政來源。另外全年每月 12 日 09:37 執行圖鑑測試。測試通過後，每月首次檢查會將結果寫入 `manual/last-health-check.json` 並提交到預設分支。健康檢查不重部署網站。手動執行時，可勾選「只執行健康檢查並儲存維護紀錄」來補跑。
+
+公開儲存庫連續 60 天無活動時，GitHub 可能停用排程。每月提交檢查紀錄可減少長期閒置的風險。若排程未執行、測試失敗或提交被分支規則阻擋，先從 Actions 查看原因。若排程已停用，需在 GitHub 重新啟用。
 
 [GitHub Actions 排程說明](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)
 
