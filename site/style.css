@@ -4,7 +4,7 @@ body{margin:0}
 .wrap{width:min(1100px,calc(100% - 2rem));margin:auto}
 header{color:#fff6e4;background:#16392f;background-image:radial-gradient(ellipse at top right,#315747,transparent 70%)}
 nav{min-height:4.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;border-bottom:1px solid #ffffff45;flex-wrap:wrap;padding:.75rem 0}
-nav div{display:flex;gap:1.3rem} nav a{color:inherit} .brand{text-decoration:none;font-family:Georgia,serif;font-weight:bold}
+nav div{display:flex;gap:1.3rem;flex-wrap:wrap} nav a{color:inherit} .brand{text-decoration:none;font-family:Georgia,serif;font-weight:bold}
 .hero{display:grid;grid-template-columns:1fr .95fr;gap:3rem;align-items:center;padding:4.5rem 0 5rem}
 .eyebrow,.postcard span,.postcard small{letter-spacing:.19em;font-size:.8rem;font-weight:700;color:#ecd3a0}
 h1,h2,h3{line-height:1.18;font-family:Georgia,"Noto Serif TC","PMingLiU",serif}
