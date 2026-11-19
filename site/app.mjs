@@ -1,3 +1,5 @@
+import {addPostage} from './postage.mjs?v=1';
+
 const byId = id => document.getElementById(id);
 const normalize = value => value.normalize('NFKC').toLowerCase().trim();
 const taipeiDate = new Intl.DateTimeFormat('sv-SE', {timeZone: 'Asia/Taipei',
@@ -96,6 +98,7 @@ function renderCard(office, season, taiwan, year, now) {
     item.append(link(source.label, source.url));
     sources.append(item);
   }
+  addPostage(address, office.country);
   card.append(sources, element('p', '查核日 ' + season.checked, 'meta'));
   return card;
 }

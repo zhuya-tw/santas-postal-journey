@@ -27,6 +27,9 @@ input,select{display:block;width:100%;min-width:0;padding:.65rem;margin-top:.25r
 .cutoff{background:#e8eee2;border-left:3px solid #426553;border-radius:.25rem;padding:.65rem .75rem;margin:.75rem 0}
 .cutoff time,td time{font-variant-numeric:tabular-nums;font-weight:700}
 .cutoff a{font-size:.9rem}
+.address-box{background:#f4ead5;border-radius:.25rem;margin:.7rem 0}
+.card .address-box address{margin:0;background:none}
+.postage{padding:.55rem .75rem;border-top:1px solid #d4c5aa;font-size:.875rem}
 .card button:disabled{opacity:.65;cursor:default}
 .card button{background:#184034;color:white}.card ul{padding-left:1.25rem}
 .table-scroll{overflow:auto;border:1px solid #c5b795;border-radius:.35rem}

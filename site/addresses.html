@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>完整地址清單｜Santa’s Postal Journey</title>
-<link rel="stylesheet" href="./style.css?v=3">
+<link rel="stylesheet" href="./style.css?v=5">
 <style>nav div{flex-wrap:wrap} summary{cursor:pointer} .card p:last-child{margin-bottom:0}</style>
+<script type="module" src="./postage.mjs?v=1"></script>
 </head>
 <body>
 <header><nav class="wrap" aria-label="主要導覽"><a class="brand" href="./">✦ Santa’s Postal Journey</a><div><a href="./#offices">郵局圖鑑</a><a href="./cutoffs.html">台灣截郵</a><a href="./addresses.html" aria-current="page">完整地址清單</a></div></nav></header>
@@ -21,7 +22,7 @@
 <article class="card">
 <h3>加拿大</h3>
 <p class="meta">官方海外回信</p>
-<address>Santa Claus<br>North Pole<br>H0H 0H0<br>CANADA</address>
+<address data-postage-country="加拿大">Santa Claus<br>North Pole<br>H0H 0H0<br>CANADA</address>
 <p>舊清單把數字 0 寫成 O。</p>
 <details><summary>舊清單寫法（1）</summary>
 <ul><li>Santa Claus, North Pole HOHOHO, Canada</li></ul></details>
@@ -30,7 +31,7 @@
 <article class="card">
 <h3>斯洛伐克</h3>
 <p class="meta">官方海外回信</p>
-<address>Ježiško<br>999 99<br>SLOVAKIA</address>
+<address data-postage-country="斯洛伐克">Ježiško<br>999 99<br>SLOVAKIA</address>
 <p>今年已收到台灣來信。</p>
 <details><summary>舊清單寫法（1）</summary>
 <ul><li>Santa Claus, Jezisko 999 99, Jezisko, Slovakia</li></ul></details>
@@ -39,7 +40,7 @@
 <article class="card">
 <h3>法國</h3>
 <p class="meta">官方海外寄件說明</p>
-<address>Père Noël<br>33500 Libourne<br>FRANCE</address>
+<address data-postage-country="法國">Père Noël<br>33500 Libourne<br>FRANCE</address>
 
 <details><summary>舊清單寫法（1）</summary>
 <ul><li>Père Noël, F-33500 Libourne, France</li></ul></details>
@@ -48,7 +49,7 @@
 <article class="card">
 <h3>德國・Himmelpfort</h3>
 <p class="meta">官方接受各國來信</p>
-<address>An den Weihnachtsmann<br>Weihnachtspostfiliale<br>16798 Himmelpfort<br>GERMANY</address>
+<address data-postage-country="德國">An den Weihnachtsmann<br>Weihnachtspostfiliale<br>16798 Himmelpfort<br>GERMANY</address>
 
 <details><summary>舊清單寫法（1）</summary>
 <ul><li>Weihnachtsmann, Weihnachtspostfiliale, 16798 Himmelpfort, Germany</li></ul></details>
@@ -57,7 +58,7 @@
 <article class="card">
 <h3>德國・Engelskirchen</h3>
 <p class="meta">官方接受各國來信</p>
-<address>An das Christkind<br>51777 Engelskirchen<br>GERMANY</address>
+<address data-postage-country="德國">An das Christkind<br>51777 Engelskirchen<br>GERMANY</address>
 
 <details><summary>舊清單寫法（1）</summary>
 <ul><li>An das Christkind, 51777 Engelskirchen, Germany</li></ul></details>
@@ -66,7 +67,7 @@
 <article class="card">
 <h3>德國・St. Nikolaus</h3>
 <p class="meta">官方接受多國來信</p>
-<address>An den Nikolaus<br>Nikolausplatz<br>66351 St. Nikolaus<br>GERMANY</address>
+<address data-postage-country="德國">An den Nikolaus<br>Nikolausplatz<br>66351 St. Nikolaus<br>GERMANY</address>
 <p>官方列中文回信；優先用專用郵遞區號 66351。</p>
 <details><summary>舊清單寫法（2）</summary>
 <ul><li>An den Nikolaus, 66351 St. Nikolaus, Germany</li><li>St. Nicholas, 66 325 Großrosseln, Saarland, Germany</li></ul></details>
@@ -75,7 +76,7 @@
 <article class="card">
 <h3>瑞典</h3>
 <p class="meta">官方接受各國兒童來信</p>
-<address>Tomten<br>173 00 Tomteboda<br>SWEDEN</address>
+<address data-postage-country="瑞典">Tomten<br>173 00 Tomteboda<br>SWEDEN</address>
 
 <details><summary>舊清單寫法（1）</summary>
 <ul><li>Tomten/Santa Claus, Tomteboda, 173 00, Sweden</li></ul></details>
@@ -89,7 +90,7 @@
 <article class="card">
 <h3>芬蘭</h3>
 <p class="meta">接受海外寄件，有時回信</p>
-<address>Santa Claus<br>Santa Claus’ Main Post Office<br>Tähtikuja 1<br>96930 Arctic Circle<br>FINLAND</address>
+<address data-postage-country="芬蘭">Santa Claus<br>Santa Claus’ Main Post Office<br>Tähtikuja 1<br>96930 Arctic Circle<br>FINLAND</address>
 <p>兩種寫法指同一據點。</p>
 <details><summary>舊清單寫法（2）</summary>
 <ul><li>Santa Claus, Arctic Circle, 96930 Rovaniemi, Finland</li><li>Santa Claus, Santa Claus´ Main Post Office, Tähtikuja 1, FI-96930 Arctic Circle, Finland</li></ul></details>
@@ -98,7 +99,7 @@
 <article class="card">
 <h3>奧地利</h3>
 <p class="meta">海外寄件有回郵券條件</p>
-<address>Postamt Christkindl<br>Christkindlweg 6<br>4411 Christkindl<br>AUSTRIA</address>
+<address data-postage-country="奧地利">Postamt Christkindl<br>Christkindlweg 6<br>4411 Christkindl<br>AUSTRIA</address>
 <p>三種寫法指同一局。</p>
 <details><summary>舊清單寫法（3）</summary>
 <ul><li>Santa Claus, Postamt Christkindl, 4411 Christkindl, Austria</li><li>Postamt Christkindl, 4411 Christkindl, ÖSTERREICH, Austria</li><li>Santa Claus, Postamt Christkindl, Christkindlweg 6, A-4411 Christkindl, Austria</li></ul></details>
@@ -107,7 +108,7 @@
 <article class="card">
 <h3>德國・Himmelsthür</h3>
 <p class="meta">官方回信據點</p>
-<address>An den Weihnachtsmann<br>31137 Hildesheim<br>GERMANY</address>
+<address data-postage-country="德國">An den Weihnachtsmann<br>31137 Hildesheim<br>GERMANY</address>
 
 <details><summary>舊清單寫法（1）</summary>
 <ul><li>An den Weihnachtsmann, Himmelsthür, 31137 Hildesheim, Germany</li></ul></details>
@@ -116,7 +117,7 @@
 <article class="card">
 <h3>德國・Himmelpforten</h3>
 <p class="meta">官方回信據點</p>
-<address>An das Christkind<br>21709 Himmelpforten<br>GERMANY</address>
+<address data-postage-country="德國">An das Christkind<br>21709 Himmelpforten<br>GERMANY</address>
 
 <details><summary>舊清單寫法（1）</summary>
 <ul><li>An das Christkind, 21709 Himmelpforten, Germany</li></ul></details>
@@ -125,7 +126,7 @@
 <article class="card">
 <h3>德國・Himmelstadt</h3>
 <p class="meta">官方回信據點</p>
-<address>An das Christkind<br>Kirchplatz 3<br>97267 Himmelstadt<br>GERMANY</address>
+<address data-postage-country="德國">An das Christkind<br>Kirchplatz 3<br>97267 Himmelstadt<br>GERMANY</address>
 
 <details><summary>舊清單寫法（1）</summary>
 <ul><li>An das Christkind, 97267 Himmelstadt, Germany</li></ul></details>
@@ -134,7 +135,7 @@
 <article class="card">
 <h3>德國・Nikolausdorf</h3>
 <p class="meta">建議使用 49681</p>
-<address>An den Nikolaus<br>49681 Nikolausdorf<br>GERMANY</address>
+<address data-postage-country="德國">An den Nikolaus<br>49681 Nikolausdorf<br>GERMANY</address>
 <p>德國郵政集郵公告列 49681；活動頁仍列 46981。</p>
 <details><summary>舊清單寫法（1）</summary>
 <ul><li>An den Nikolaus, 49681 Nikolausdorf, Germany</li></ul></details>
@@ -148,7 +149,7 @@
 <article class="card">
 <h3>荷蘭・Nuenen</h3>
 <p class="meta">2026 公告，回郵郵資待確認</p>
-<address>Sinterklaashof<br>Postbus 368<br>5670 AJ Nuenen<br>NETHERLANDS</address>
+<address data-postage-country="荷蘭">Sinterklaashof<br>Postbus 368<br>5670 AJ Nuenen<br>NETHERLANDS</address>
 <p>公告要求多附回信郵票，未公布寄回台灣的郵資。</p>
 <details><summary>舊清單寫法（1）</summary>
 <ul><li>Sinterklaashof, Postbus 368, 5670 AJ Nuenen, Netherlands</li></ul></details>
@@ -157,7 +158,7 @@
 <article class="card">
 <h3>挪威・Drøbak</h3>
 <p class="meta">有收信地址，海外回信待確認</p>
-<address>Julenissen<br>1440 Drøbak<br>NORWAY</address>
+<address data-postage-country="挪威">Julenissen<br>1440 Drøbak<br>NORWAY</address>
 
 <details><summary>舊清單寫法（2）</summary>
 <ul><li>Santa Claus, 1440 Drobak, Norway</li><li>Julenissens Postkontor, Torget 4, 1440 Drøbak, Norway</li></ul></details>
@@ -166,7 +167,7 @@
 <article class="card">
 <h3>美國・印第安納州</h3>
 <p class="meta">志工回信，台灣條件待確認</p>
-<address>Santa Claus<br>P.O. Box 1<br>Santa Claus, IN 47579<br>USA</address>
+<address data-postage-country="美國">Santa Claus<br>P.O. Box 1<br>Santa Claus, IN 47579<br>USA</address>
 <p>志工團隊請附完整回郵地址；今年海外回信及寄回期限未確認。</p>
 <details><summary>舊清單寫法（1）</summary>
 <ul><li>Santa's Elves, P.O.Box 1, Santa Claus, Indiana 47579, USA</li></ul></details>
@@ -175,7 +176,7 @@
 <article class="card">
 <h3>英國</h3>
 <p class="meta">2026 官方地址，海外回信待確認</p>
-<address>Santa/Father Christmas<br>Santa’s Grotto<br>Reindeerland<br>XM4 5HQ<br>UNITED KINGDOM</address>
+<address data-postage-country="英國">Santa/Father Christmas<br>Santa’s Grotto<br>Reindeerland<br>XM4 5HQ<br>UNITED KINGDOM</address>
 <p>官方建議 12/9 前寄出；舊 SAN TA1 先停用。</p>
 <details><summary>舊清單寫法（3）</summary>
 <ul><li>Father Christmas, North Pole, SAN TA1, Great Britain</li><li>Santa/Father Christmas, Santa’s Grotto, Reindeerland, SAN TA1, Great Britain</li><li>Santa/Father Christmas, Santa’s Grotto, Reindeerland, XM4 5HQ, United Kingdom</li></ul></details>
@@ -184,7 +185,7 @@
 <article class="card">
 <h3>白俄羅斯</h3>
 <p class="meta">主辦方公布實體地址</p>
-<address>Father Frost<br>Father Frost’s Residence<br>Kamenyuki village, Kamenetz district, Brest region<br>225063 BELARUS</address>
+<address data-postage-country="白俄羅斯">Father Frost<br>Father Frost’s Residence<br>Kamenyuki village, Kamenetz district, Brest region<br>225063 BELARUS</address>
 <p>寄回台灣的時程未確認。</p>
 <details><summary>舊清單寫法（1）</summary>
 <ul><li>Väterchen Frost, 225063 Kamenets District, Brest Region, Belarus</li></ul></details>
@@ -193,7 +194,7 @@
 <article class="card">
 <h3>俄羅斯・莫斯科</h3>
 <p class="meta">主辦方公布地址，海外回信待確認</p>
-<address>Московская усадьба Деда Мороза<br>Волгоградский проспект, вл. 168Д<br>Москва 109472<br>RUSSIA</address>
+<address data-postage-country="俄羅斯">Московская усадьба Деда Мороза<br>Волгоградский проспект, вл. 168Д<br>Москва 109472<br>RUSSIA</address>
 
 <details><summary>舊清單寫法（1）</summary>
 <ul><li>109472, Dedushke Morozy, Kuzminskiy Les, Moscow, Russia</li></ul></details>
@@ -225,7 +226,7 @@
 <article class="card">
 <h3>丹麥</h3>
 <p class="meta">今年有新地址，海外寄件待確認</p>
-<address>Julemandens postopsamling 24<br>2412 Julebyen</address>
+<address data-postage-country="丹麥">Julemandens postopsamling 24<br>2412 Julebyen</address>
 <p>此為 dao 公告寫法，從台灣投遞的可行性待確認。</p>
 <details><summary>舊清單寫法（1）</summary>
 <ul><li>Julemanden, Julemandens Postcenter 24, 0900 København C</li></ul></details>
