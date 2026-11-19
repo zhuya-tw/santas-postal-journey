@@ -16,7 +16,7 @@ CATALOG = ROOT / "site/data/catalog.json"
 CONFIG = ROOT / "config/sources.json"
 TW = "www.post.gov.tw"
 HOSTS = {TW, "www.canadapost-postescanada.ca", "www.deutschepost.de",
-         "my.posti.fi", "www.laposte.fr", "api.boutique.laposte.fr"}
+         "my.posti.fi", "www.laposte.fr", "api.boutique.laposte.fr", "www.post.at"}
 LIMIT = 8_000_000
 DATE = r"(?:11|12)/[0-3]?\d"
 

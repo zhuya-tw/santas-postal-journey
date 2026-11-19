@@ -24,9 +24,12 @@ input,select{display:block;width:100%;min-width:0;padding:.65rem;margin-top:.25r
 .card{background:#fffaf0;border:1px solid #d4c5aa;border-top:4px solid #8b3744;border-radius:.35rem;padding:1.15rem;overflow-wrap:anywhere}
 .card h3{font-size:1.45rem;margin:.4rem 0 .8rem}
 .meta{font-size:.9rem;color:#5d5147}.card address{white-space:pre-line;font-style:normal;font-family:ui-monospace,monospace;background:#f4ead5;padding:.75rem;margin:.7rem 0}
+.cutoff{background:#e8eee2;border-left:3px solid #426553;border-radius:.25rem;padding:.65rem .75rem;margin:.75rem 0}
+.cutoff time,td time{font-variant-numeric:tabular-nums;font-weight:700}
+.cutoff a{font-size:.9rem}
 .card button{background:#184034;color:white}.card ul{padding-left:1.25rem}
 .table-scroll{overflow:auto;border:1px solid #c5b795;border-radius:.35rem}
-table{border-collapse:collapse;width:100%;background:#fffaf0;white-space:nowrap;text-align:left}
+table{border-collapse:collapse;width:100%;background:#fffaf0;text-align:left}
 th,td{padding:.55rem .8rem;border-bottom:1px solid #e1d5be}thead{background:#25483b;color:white}
 footer{background:#16392f;color:#fff6e4;padding:1.4rem 0}
 :focus-visible{outline:3px solid #ad5722;outline-offset:3px}

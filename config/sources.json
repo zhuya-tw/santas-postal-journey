@@ -47,6 +47,62 @@
         "adresse complète",
         "de l’étranger"
       ]
+    },
+    {
+      "id": "himmelsthuer",
+      "url": "https://www.deutschepost.de/de/w/weihnachtspost/weihnachtsmann-christkind/himmelsthuer.html",
+      "anchors": [
+        "31137 Hildesheim",
+        "2. Advent"
+      ]
+    },
+    {
+      "id": "engelskirchen",
+      "url": "https://www.deutschepost.de/de/w/weihnachtspost/weihnachtsmann-christkind/engelskirchen.html",
+      "anchors": [
+        "51777 Engelskirchen",
+        "5 Tage vor Heiligabend"
+      ]
+    },
+    {
+      "id": "himmelpforten",
+      "url": "https://www.deutschepost.de/de/w/weihnachtspost/weihnachtsmann-christkind/himmelpforten.html",
+      "anchors": [
+        "21709 Himmelpforten",
+        "einen Brief vom Christkind"
+      ]
+    },
+    {
+      "id": "himmelstadt",
+      "url": "https://www.deutschepost.de/de/w/weihnachtspost/weihnachtsmann-christkind/himmelstadt.html",
+      "anchors": [
+        "97267 Himmelstadt",
+        "17.12.2026"
+      ]
+    },
+    {
+      "id": "st-nikolaus",
+      "url": "https://www.deutschepost.de/de/w/weihnachtspost/weihnachtsmann-christkind/st-nikolaus.html",
+      "anchors": [
+        "66351 St. Nikolaus",
+        "Mandarin"
+      ]
+    },
+    {
+      "id": "at",
+      "url": "https://www.post.at/p/blog-postamt-christkindl",
+      "anchors": [
+        "Internationale Christkindbriefe",
+        "internationaler Antwortschein"
+      ]
+    },
+    {
+      "id": "at-season",
+      "url": "https://www.post.at/p/c/postamt-christkindl",
+      "anchors": [
+        "Christkindlweg 6",
+        "4411 Christkindl"
+      ]
     }
   ]
 }

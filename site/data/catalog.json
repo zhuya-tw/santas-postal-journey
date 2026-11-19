@@ -28,7 +28,8 @@
           "deadlineNote": null,
           "checked": "2026-11-19"
         }
-      }
+      },
+      "cutoffRegion": "加拿大"
     },
     {
       "id": "de",
@@ -60,7 +61,8 @@
           "deadlineNote": "官方建議最晚寄出日",
           "checked": "2026-11-19"
         }
-      }
+      },
+      "cutoffRegion": "法國、德國"
     },
     {
       "id": "fi",
@@ -98,7 +100,9 @@
           "deadlineNote": null,
           "checked": "2026-11-19"
         }
-      }
+      },
+      "cutoffRegion": "南、北歐地區",
+      "cutoffRegional": true
     },
     {
       "id": "fr",
@@ -122,6 +126,205 @@
             {
               "label": "La Poste 地址與回信說明",
               "url": "https://www.laposte.fr/modeles-lettres/lettre-pere-noel"
+            }
+          ],
+          "deadline": null,
+          "deadlineNote": null,
+          "checked": "2026-11-19"
+        }
+      },
+      "cutoffRegion": "法國、德國"
+    },
+    {
+      "id": "himmelsthuer",
+      "country": "德國",
+      "name": "希梅爾斯蒂爾聖誕老人郵局",
+      "keywords": [
+        "Himmelsthür",
+        "Germany",
+        "Deutschland",
+        "Deutsche Post"
+      ],
+      "cutoffRegion": "法國、德國",
+      "seasons": {
+        "2026": {
+          "address": [
+            "An den Weihnachtsmann",
+            "31137 Hildesheim",
+            "GERMANY"
+          ],
+          "replyType": "program",
+          "reply": "請留下完整寄件地址。官方建議信件於降臨節第二個主日前送達，海外回信條件以郵局公告為準。",
+          "sources": [
+            {
+              "label": "Deutsche Post 地址與活動詳情",
+              "url": "https://www.deutschepost.de/de/w/weihnachtspost/weihnachtsmann-christkind/himmelsthuer.html"
+            }
+          ],
+          "deadline": "2026-12-06",
+          "deadlineNote": "依官方第二個降臨主日換算的收件日",
+          "checked": "2026-11-19"
+        }
+      }
+    },
+    {
+      "id": "engelskirchen",
+      "country": "德國",
+      "name": "恩格爾斯基興聖嬰郵局",
+      "keywords": [
+        "Engelskirchen",
+        "Germany",
+        "Deutschland",
+        "Deutsche Post"
+      ],
+      "cutoffRegion": "法國、德國",
+      "seasons": {
+        "2026": {
+          "address": [
+            "An das Christkind",
+            "51777 Engelskirchen",
+            "GERMANY"
+          ],
+          "replyType": "program",
+          "reply": "接受世界各地來信並提供回信。請附完整回郵地址。",
+          "sources": [
+            {
+              "label": "Deutsche Post 地址與活動詳情",
+              "url": "https://www.deutschepost.de/de/w/weihnachtspost/weihnachtsmann-christkind/engelskirchen.html"
+            }
+          ],
+          "deadline": "2026-12-19",
+          "deadlineNote": "依官方平安夜前五天換算的收件日",
+          "checked": "2026-11-19"
+        }
+      }
+    },
+    {
+      "id": "himmelpforten",
+      "country": "德國",
+      "name": "希梅爾普福滕聖嬰郵局",
+      "keywords": [
+        "Himmelpforten",
+        "Germany",
+        "Deutschland",
+        "Deutsche Post"
+      ],
+      "cutoffRegion": "法國、德國",
+      "seasons": {
+        "2026": {
+          "address": [
+            "An das Christkind",
+            "21709 Himmelpforten",
+            "GERMANY"
+          ],
+          "replyType": "program",
+          "reply": "官方說明可寄聖誕賀信，有機會收到聖嬰或聖誕老人的回信。海外回信條件以郵局公告為準。",
+          "sources": [
+            {
+              "label": "Deutsche Post 地址與活動詳情",
+              "url": "https://www.deutschepost.de/de/w/weihnachtspost/weihnachtsmann-christkind/himmelpforten.html"
+            }
+          ],
+          "deadline": null,
+          "deadlineNote": null,
+          "checked": "2026-11-19"
+        }
+      }
+    },
+    {
+      "id": "himmelstadt",
+      "country": "德國",
+      "name": "希梅爾施塔特聖嬰郵局",
+      "keywords": [
+        "Himmelstadt",
+        "Germany",
+        "Deutschland",
+        "Deutsche Post"
+      ],
+      "cutoffRegion": "法國、德國",
+      "seasons": {
+        "2026": {
+          "address": [
+            "An das Christkind",
+            "Kirchplatz 3",
+            "97267 Himmelstadt",
+            "GERMANY"
+          ],
+          "replyType": "program",
+          "reply": "郵局會盡量在節前回覆。請留下完整回郵地址。幼兒園及學校收件期限為 12 月 15 日。",
+          "sources": [
+            {
+              "label": "Deutsche Post 地址與活動詳情",
+              "url": "https://www.deutschepost.de/de/w/weihnachtspost/weihnachtsmann-christkind/himmelstadt.html"
+            }
+          ],
+          "deadline": "2026-12-17",
+          "deadlineNote": "個人信件最晚送達日",
+          "checked": "2026-11-19"
+        }
+      }
+    },
+    {
+      "id": "st-nikolaus",
+      "country": "德國",
+      "name": "聖尼古拉斯郵局",
+      "keywords": [
+        "St. Nikolaus",
+        "Germany",
+        "Deutschland",
+        "Deutsche Post"
+      ],
+      "cutoffRegion": "法國、德國",
+      "seasons": {
+        "2026": {
+          "address": [
+            "An den Nikolaus",
+            "Nikolausplatz",
+            "66351 St. Nikolaus",
+            "GERMANY"
+          ],
+          "replyType": "program",
+          "reply": "官方說明會回覆多國來信，可用中文回覆。請留下完整回郵地址。",
+          "sources": [
+            {
+              "label": "Deutsche Post 地址與活動詳情",
+              "url": "https://www.deutschepost.de/de/w/weihnachtspost/weihnachtsmann-christkind/st-nikolaus.html"
+            }
+          ],
+          "deadline": "2026-12-21",
+          "deadlineNote": "官方頁面所列最晚送達日",
+          "checked": "2026-11-19"
+        }
+      }
+    },
+    {
+      "id": "at",
+      "country": "奧地利",
+      "name": "克里斯特金德爾聖嬰郵局",
+      "keywords": [
+        "Austria",
+        "Österreich",
+        "Christkindl"
+      ],
+      "cutoffRegion": null,
+      "seasons": {
+        "2026": {
+          "address": [
+            "Postamt Christkindl",
+            "Christkindlweg 6",
+            "4411 Christkindl",
+            "AUSTRIA"
+          ],
+          "replyType": "program",
+          "reply": "奧地利郵政的海外寄件說明要求附國際回郵券，並附寫妥回郵地址的信封。交寄前請確認所需回郵券可否取得。",
+          "sources": [
+            {
+              "label": "奧地利郵政海外寄件說明",
+              "url": "https://www.post.at/p/blog-postamt-christkindl"
+            },
+            {
+              "label": "奧地利郵政 2026 年地址與活動",
+              "url": "https://www.post.at/p/c/postamt-christkindl"
             }
           ],
           "deadline": null,

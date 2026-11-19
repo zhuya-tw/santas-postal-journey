@@ -20,10 +20,10 @@
 2. 若網站改版導致關鍵詞找不到，先更新 `config/sources.json` 的網址與 anchors，再跑一次。
 3. 年度資料寫在對應郵局的 `seasons` 下。填入地址行、回信說明、查核日及官方連結。期限需有當年官方明文，填入 ISO 日期和期限型態說明，否則填 `null`。回信欄支援 `program` 與 `occasional`。
 4. 對照官方內容後，把報告 `observed` 中已核准的個別值寫進 `config/baseline.json`。格式為來源 ID 對 SHA-256 字串的 JSON 物件。初次執行也使用同一流程。推送後重跑，確認待審核項目消失。
-5. 如有新增官方郵局，同時新增圖鑑資料與來源設定，並在 `scripts/check_sources.py` 的 `HOSTS` 登錄官方網域。推送前執行 README 的測試。
+5. 如有新增官方郵局，同時新增圖鑑資料與來源設定，並在 `scripts/check_sources.py` 的 `HOSTS` 登錄官方網域。`cutoffRegion` 對應中華郵政表中正式地區名稱；僅有地理區域參考時設 `cutoffRegional: true`，適用地區仍待確認時留空。推送前執行 README 的測試。
 
 ## 公開網站備份與回復
 
 每年留存發行版本或下載原始碼 ZIP。若要保留完整版本紀錄，用 `git clone --mirror` 備份並定期執行 `git remote update`。備份一份核對過的原始 PDF 和必要的查核報告。發現錯誤時，查看 Git 歷史並以 `git revert` 回復，或以新的提交修正資料，再手動發布。若預設分支規則限制 Actions 提交，從報告取出 `candidate` 經人工審核後走正常合併流程。
 
-從備份重建時，匯入程式和歷年資料，重新啟用 Pages 的 GitHub Actions 發布來源與排程，再執行一次手動發布。測試 2025、2026 資料切換、複製地址、官方連結及窄螢幕截郵表。
+從備份重建時，匯入程式和歷年資料，重新啟用 Pages 的 GitHub Actions 發布來源與排程，再執行一次手動發布。測試 2025、2026 資料切換、複製地址、官方連結、截郵倒數及窄螢幕截郵表。
