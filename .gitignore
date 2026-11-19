@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.venv/
+review-report.json
+.env
+private/
+backups/

@@ -1,0 +1,34 @@
+*{box-sizing:border-box}
+:root{color:#233c32;background:#f8f2e6;font-family:system-ui,"Microsoft JhengHei",sans-serif;line-height:1.6}
+body{margin:0}
+.wrap{width:min(1100px,calc(100% - 2rem));margin:auto}
+header{color:#fff6e4;background:#16392f;background-image:radial-gradient(ellipse at top right,#315747,transparent 70%)}
+nav{min-height:4.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;border-bottom:1px solid #ffffff45;flex-wrap:wrap;padding:.75rem 0}
+nav div{display:flex;gap:1.3rem} nav a{color:inherit} .brand{text-decoration:none;font-family:Georgia,serif;font-weight:bold}
+.hero{display:grid;grid-template-columns:1fr .95fr;gap:3rem;align-items:center;padding:4.5rem 0 5rem}
+.eyebrow,.postcard span,.postcard small{letter-spacing:.19em;font-size:.8rem;font-weight:700;color:#ecd3a0}
+h1,h2,h3{line-height:1.18;font-family:Georgia,"Noto Serif TC","PMingLiU",serif}
+h1{font-size:clamp(3rem,7vw,5.7rem);margin:.3rem 0 1.4rem;letter-spacing:.04em}
+.intro{max-width:31rem;margin-bottom:1.7rem}
+a{color:#792a37;text-underline-offset:.18em}
+.cta,button{display:inline-block;background:#f2deb5;color:#303525;border:1px solid transparent;border-radius:.35rem;padding:.6rem .95rem;font:inherit;font-weight:700;text-decoration:none;cursor:pointer}
+.postcard{position:relative;padding:2rem;aspect-ratio:1.5;transform:rotate(-5deg);color:#782c3a;background:repeating-linear-gradient(135deg,#8b3744 0 9px,#f6e8ca 9px 19px,#426553 19px 28px,#f6e8ca 28px 38px) border-box;border:8px solid transparent;isolation:isolate;box-shadow:0 20px 40px #0a1c16a0;max-width:440px}
+.postcard:before{content:"";position:absolute;inset:0;background:#f6e8ca;z-index:-1}
+.postcard strong{display:block;margin:.7rem 0;font:italic clamp(2.3rem,5vw,4rem)/.95 Georgia,serif}
+.postcard span,.postcard small{color:#782c3a}.stamp{float:right;border:3px dotted #f2d19c;background:#852e40;color:#fff2d7;font-size:2rem;padding:0 .7rem;transform:rotate(8deg)}
+section{padding:2rem 0;scroll-margin-top:1rem} h2{font-size:clamp(1.8rem,4vw,2.7rem);margin:.35rem 0 1rem}
+.filters{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem}
+label{font-weight:700}
+input,select{display:block;width:100%;min-width:0;padding:.65rem;margin-top:.25rem;background:#fffaf0;color:inherit;border:1px solid #908375;border-radius:.35rem;font:inherit}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.card{background:#fffaf0;border:1px solid #d4c5aa;border-top:4px solid #8b3744;border-radius:.35rem;padding:1.15rem;overflow-wrap:anywhere}
+.card h3{font-size:1.45rem;margin:.4rem 0 .8rem}
+.meta{font-size:.9rem;color:#5d5147}.card address{white-space:pre-line;font-style:normal;font-family:ui-monospace,monospace;background:#f4ead5;padding:.75rem;margin:.7rem 0}
+.card button{background:#184034;color:white}.card ul{padding-left:1.25rem}
+.table-scroll{overflow:auto;border:1px solid #c5b795;border-radius:.35rem}
+table{border-collapse:collapse;width:100%;background:#fffaf0;white-space:nowrap;text-align:left}
+th,td{padding:.55rem .8rem;border-bottom:1px solid #e1d5be}thead{background:#25483b;color:white}
+footer{background:#16392f;color:#fff6e4;padding:1.4rem 0}
+:focus-visible{outline:3px solid #ad5722;outline-offset:3px}
+@media(max-width:680px){.hero{grid-template-columns:1fr;padding:2.5rem 0 3rem;gap:2rem}.postcard{width:85%;margin:auto}.grid{grid-template-columns:1fr}.filters{grid-template-columns:1fr 1fr}.filters label:first-child{grid-column:1/-1}}
+@media(max-width:350px){.filters{grid-template-columns:1fr}}

@@ -1,0 +1,52 @@
+{
+  "taiwanLists": [
+    "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=150102",
+    "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=150102&PreRowDatas=10&news_cat=4&news_type=latest_news&topage=2",
+    "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=150102&PreRowDatas=10&news_cat=4&news_type=latest_news&topage=3",
+    "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=150102&PreRowDatas=10&news_cat=4&news_type=latest_news&topage=4"
+  ],
+  "foreign": [
+    {
+      "id": "ca",
+      "url": "https://www.canadapost-postescanada.ca/cpc/en/our-company/write-letter-to-santa/letters-from-around-the-world.page",
+      "anchors": [
+        "H0H 0H0",
+        "return address",
+        "cannot guarantee"
+      ]
+    },
+    {
+      "id": "de",
+      "url": "https://www.deutschepost.de/de/w/weihnachtspost/weihnachtsmann-christkind/himmelpfort.html",
+      "anchors": [
+        "16798 Himmelpfort",
+        "vollständige Absender",
+        "bis spätestens dritten Advent"
+      ]
+    },
+    {
+      "id": "fi",
+      "url": "https://my.posti.fi/en/santa-claus-main-post-office",
+      "anchors": [
+        "Tähtikuja 1",
+        "96930 Arctic Circle"
+      ]
+    },
+    {
+      "id": "fi-reply",
+      "url": "https://my.posti.fi/en/privacy-statement-santa-claus-main-post-office",
+      "anchors": [
+        "delight you with a reply"
+      ]
+    },
+    {
+      "id": "fr",
+      "url": "https://www.laposte.fr/modeles-lettres/lettre-pere-noel",
+      "anchors": [
+        "33500 Libourne",
+        "adresse complète",
+        "de l’étranger"
+      ]
+    }
+  ]
+}

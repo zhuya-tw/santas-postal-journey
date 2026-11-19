@@ -1,0 +1,107 @@
+name: 圖鑑發布與郵政查核
+on:
+  push:
+    paths:
+      - 'site/**'
+      - 'config/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'requirements.txt'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+    inputs:
+      check_sources:
+        description: 同時查核官方郵政來源
+        type: boolean
+        default: true
+  schedule:
+    - cron: '23 1 * 9-12 1,4'
+permissions:
+  contents: read
+concurrency:
+  group: santa-pages
+  cancel-in-progress: false
+jobs:
+  build:
+    if: github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Test
+        run: |
+          python -m unittest discover -s tests
+          node --test tests/catalog.test.mjs
+      - name: Inspect official sources
+        if: github.event_name == 'schedule' || inputs.check_sources
+        run: |
+          python -m pip install -r requirements.txt
+          python scripts/check_sources.py --apply
+      - name: Save reviewed-by-rule data
+        if: github.event_name == 'schedule' || inputs.check_sources
+        run: |
+          if git diff --quiet -- site/data/catalog.json; then exit 0; fi
+          python -m unittest discover -s tests
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/data/catalog.json
+          git commit -m "Add validated Chunghwa Post seasonal cutoff table"
+          git push origin HEAD
+      - name: Upload verified site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - name: Save evidence for review
+        if: (success() || failure()) && hashFiles('review-report.json') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: postal-review
+          path: review-report.json
+          retention-days: 30
+      - name: Maintain annual review issue
+        if: (success() || failure()) && hashFiles('review-report.json') != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const report = JSON.parse(require('fs').readFileSync('review-report.json', 'utf8'));
+            const title = '郵政來源待審核｜' + report.year;
+            const repo = context.repo;
+            const issues = await github.paginate(github.rest.issues.listForRepo, {
+              ...repo, state: 'open', creator: 'github-actions[bot]', per_page: 100
+            });
+            const issue = issues.find(item => !item.pull_request && item.title === title);
+            const lines = report.review.map(item => JSON.stringify(item).replaceAll('`', '\\u0060'));
+            const body = [
+              '檢查官方來源與 Actions 的 postal-review 報告。處理方式見維護手冊。',
+              '', '```json', ...lines, '```'
+            ].join('\n');
+            if (!report.review.length) {
+              if (issue) await github.rest.issues.update({...repo, issue_number: issue.number, state: 'closed'});
+            } else if (!issue) {
+              await github.rest.issues.create({...repo, title, body});
+            } else if (issue.body !== body) {
+              await github.rest.issues.update({...repo, issue_number: issue.number, body});
+            }
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.pages.outputs.page_url }}
+    steps:
+      - id: pages
+        uses: actions/deploy-pages@v4
