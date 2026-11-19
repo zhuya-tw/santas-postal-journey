@@ -103,6 +103,14 @@
         "Christkindlweg 6",
         "4411 Christkindl"
       ]
+    },
+    {
+      "id": "nikolausdorf",
+      "url": "https://www.deutschepost.de/de/w/weihnachtspost/weihnachtsmann-christkind/nikolausdorf.html",
+      "anchors": [
+        "Nikolausdorf",
+        "An den Nikolaus"
+      ]
     }
   ]
 }

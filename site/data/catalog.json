@@ -265,6 +265,60 @@
       }
     },
     {
+      "id": "nikolausdorf",
+      "country": "德國",
+      "name": "尼古拉斯村郵局",
+      "keywords": [
+        "Nikolausdorf",
+        "Garrel",
+        "Germany"
+      ],
+      "cutoffRegion": "法國、德國",
+      "seasons": {
+        "2025": {
+          "address": [
+            "An den Nikolaus",
+            "49681 Nikolausdorf",
+            "GERMANY"
+          ],
+          "replyType": "program",
+          "reply": "志工協助回覆聖尼古拉斯來信。請留下完整回郵地址。",
+          "sources": [
+            {
+              "label": "德國郵政 2025 年集郵公告",
+              "url": "https://shop.deutschepost.de/MEDIA/PROD_ProductCatalog/Stempel_und_Info_Nr._24_2025_2025_24_Stempel_und_Information_05_11_2025.pdf?_requestid=72530&profile=original"
+            }
+          ],
+          "deadline": null,
+          "deadlineNote": null,
+          "checked": "2026-11-19"
+        },
+        "2026": {
+          "address": [
+            "An den Nikolaus",
+            "49681 Nikolausdorf",
+            "GERMANY"
+          ],
+          "replyType": "program",
+          "reply": "志工協助回覆聖尼古拉斯來信。請留下完整回郵地址。",
+          "sources": [
+            {
+              "label": "德國郵政 2025 年集郵公告",
+              "url": "https://shop.deutschepost.de/MEDIA/PROD_ProductCatalog/Stempel_und_Info_Nr._24_2025_2025_24_Stempel_und_Information_05_11_2025.pdf?_requestid=72530&profile=original"
+            },
+            {
+              "label": "德國郵政目前活動頁",
+              "url": "https://www.deutschepost.de/de/w/weihnachtspost/weihnachtsmann-christkind/nikolausdorf.html"
+            }
+          ],
+          "deadline": null,
+          "deadlineNote": null,
+          "checked": "2026-11-19",
+          "addressNote": "郵遞區號待確認。2025 年官方公告列 49681，目前活動頁列 46981，交寄前請向德國郵政確認。"
+        }
+      }
+    },
+    {
       "id": "st-nikolaus",
       "country": "德國",
       "name": "聖尼古拉斯郵局",

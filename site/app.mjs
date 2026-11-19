@@ -79,12 +79,15 @@ function renderCard(office, season, taiwan, year, now) {
   const address = element('address', season.address.join('\n'));
   const button = element('button', '複製地址');
   button.type = 'button';
+  button.disabled = Boolean(season.addressNote);
   button.setAttribute('aria-label', '複製' + office.name + '地址');
   const status = element('div', '', 'meta');
   status.id = 'copy-' + office.id;
   status.setAttribute('role', 'status');
   button.addEventListener('click', () => copyAddress(address, button, status));
-  card.append(cutoff, address, button, status, element('p', season.reply), element('p',
+  card.append(cutoff);
+  if (season.addressNote) card.append(element('p', season.addressNote));
+  card.append(address, button, status, element('p', season.reply), element('p',
     '當地活動期限：' + (season.deadline ? season.deadline + '（' + season.deadlineNote + '）' : '未列經查核的年度日期')));
   const sources = element('ul');
   for (const source of season.sources) {
@@ -149,14 +152,22 @@ async function start() {
     byId('cards').replaceChildren(...offices.map(office =>
       renderCard(office, office.seasons[selected], data.taiwan[selected], selected, now)));
   };
+  const search = byId('search');
+  const reply = byId('reply');
+  const yearLinks = document.querySelectorAll('[data-year-link]');
   const renderAll = () => {
     const now = new Date();
-    render(now);
-    renderTaiwan(data.taiwan[year.value], year.value, now);
+    if (search) render(now);
+    else renderTaiwan(data.taiwan[year.value], year.value, now);
+    for (const link of yearLinks) {
+      const url = new URL(link.href);
+      url.searchParams.set('year', year.value);
+      link.href = url;
+    }
     return taipeiDate.format(now);
   };
-  byId('search').addEventListener('input', () => render());
-  byId('reply').addEventListener('change', () => render());
+  search?.addEventListener('input', () => render());
+  reply?.addEventListener('change', () => render());
   year.addEventListener('change', () => {
     const url = new URL(location.href);
     url.searchParams.set('year', year.value);
@@ -172,5 +183,6 @@ async function start() {
 }
 
 if (typeof document !== 'undefined') start().catch(() => {
-  byId('results').textContent = '圖鑑載入失敗，請重新整理網頁。';
+  const message = byId('results') ?? byId('tw-source');
+  message.textContent = '資料載入失敗，請重新整理網頁。';
 });

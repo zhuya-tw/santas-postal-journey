@@ -27,11 +27,14 @@ input,select{display:block;width:100%;min-width:0;padding:.65rem;margin-top:.25r
 .cutoff{background:#e8eee2;border-left:3px solid #426553;border-radius:.25rem;padding:.65rem .75rem;margin:.75rem 0}
 .cutoff time,td time{font-variant-numeric:tabular-nums;font-weight:700}
 .cutoff a{font-size:.9rem}
+.card button:disabled{opacity:.65;cursor:default}
 .card button{background:#184034;color:white}.card ul{padding-left:1.25rem}
 .table-scroll{overflow:auto;border:1px solid #c5b795;border-radius:.35rem}
 table{border-collapse:collapse;width:100%;background:#fffaf0;text-align:left}
 th,td{padding:.55rem .8rem;border-bottom:1px solid #e1d5be}thead{background:#25483b;color:white}
 footer{background:#16392f;color:#fff6e4;padding:1.4rem 0}
+.section-title{font-size:clamp(2rem,5vw,3.2rem);margin:.35rem 0 1rem;letter-spacing:0}
+.year-field{display:block;max-width:13rem}
 :focus-visible{outline:3px solid #ad5722;outline-offset:3px}
 @media(max-width:680px){.hero{grid-template-columns:1fr;padding:2.5rem 0 3rem;gap:2rem}.postcard{width:85%;margin:auto}.grid{grid-template-columns:1fr}.filters{grid-template-columns:1fr 1fr}.filters label:first-child{grid-column:1/-1}}
 @media(max-width:350px){.filters{grid-template-columns:1fr}}
