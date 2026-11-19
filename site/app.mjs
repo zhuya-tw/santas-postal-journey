@@ -114,16 +114,26 @@ function renderTaiwan(taiwan, year, now) {
   const table = element('table');
   table.setAttribute('aria-label', year + ' 年中華郵政截郵日期');
   const header = table.createTHead().insertRow();
-  for (const title of ['寄達地區', '聖誕・航空函件']) {
+  for (const title of ['洲別', '寄達地區', '聖誕・航空函件']) {
     const cell = element('th', title);
     cell.scope = 'col';
     header.append(cell);
   }
-  const body = table.createTBody();
+  const groups = new Map([['香港', '亞洲'], ['法國、德國', '歐洲'], ['美國', '美洲'],
+    ['南非', '非洲'], ['澳大利亞', '大洋洲']]);
+  let body;
+  let continent;
   for (const [region, date] of taiwan.rows) {
+    if (!body || groups.has(region)) {
+      body = table.createTBody();
+      continent = element('th', groups.get(region) ?? '');
+      continent.scope = 'rowgroup';
+      continent.className = 'continent';
+    }
     const row = body.insertRow();
-    // The source table groups 南非 and 其他各地 under its 非洲 heading.
-    const label = element('th', region === '其他各地' ? '非洲其他地區' : region);
+    if (body.rows.length === 1) row.append(continent);
+    continent.rowSpan = body.rows.length;
+    const label = element('th', region);
     label.scope = 'row';
     row.append(label);
     const time = element('time', date.replace('-', '/'));

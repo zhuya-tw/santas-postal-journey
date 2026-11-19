@@ -31,6 +31,7 @@ input,select{display:block;width:100%;min-width:0;padding:.65rem;margin-top:.25r
 .card button{background:#184034;color:white}.card ul{padding-left:1.25rem}
 .table-scroll{overflow:auto;border:1px solid #c5b795;border-radius:.35rem}
 table{border-collapse:collapse;width:100%;background:#fffaf0;text-align:left}
+.continent{background:#e8eee2;vertical-align:top;white-space:nowrap}
 th,td{padding:.55rem .8rem;border-bottom:1px solid #e1d5be}thead{background:#25483b;color:white}
 footer{background:#16392f;color:#fff6e4;padding:1.4rem 0}
 .section-title{font-size:clamp(2rem,5vw,3.2rem);margin:.35rem 0 1rem;letter-spacing:0}
