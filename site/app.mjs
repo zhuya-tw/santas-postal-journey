@@ -130,7 +130,7 @@ function renderTaiwan(taiwan, year, now) {
 }
 
 async function start() {
-  const response = await fetch('./data/catalog.json');
+  const response = await fetch('./data/catalog.json', {cache: 'no-cache'});
   if (!response.ok) throw new Error('Catalog unavailable');
   const data = await response.json();
   const year = byId('year');
