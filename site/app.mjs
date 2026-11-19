@@ -122,7 +122,8 @@ function renderTaiwan(taiwan, year, now) {
   const body = table.createTBody();
   for (const [region, date] of taiwan.rows) {
     const row = body.insertRow();
-    const label = element('th', region);
+    // The source table groups 南非 and 其他各地 under its 非洲 heading.
+    const label = element('th', region === '其他各地' ? '非洲其他地區' : region);
     label.scope = 'row';
     row.append(label);
     const time = element('time', date.replace('-', '/'));
