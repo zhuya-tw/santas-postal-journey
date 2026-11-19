@@ -86,7 +86,8 @@ function renderCard(office, season, taiwan, year, now) {
   status.setAttribute('role', 'status');
   button.addEventListener('click', () => copyAddress(address, button, status));
   card.append(cutoff);
-  if (season.addressNote) card.append(element('p', season.addressNote));
+  const addressMessage = season.addressNote ?? season.addressAdvice;
+  if (addressMessage) card.append(element('p', addressMessage));
   card.append(address, button, status, element('p', season.reply), element('p',
     '當地活動期限：' + (season.deadline ? season.deadline + '（' + season.deadlineNote + '）' : '未列經查核的年度日期')));
   const sources = element('ul');

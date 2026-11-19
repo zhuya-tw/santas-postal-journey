@@ -111,6 +111,30 @@
         "Nikolausdorf",
         "An den Nikolaus"
       ]
+    },
+    {
+      "id": "sk",
+      "url": "https://www.posta.sk/clanky/vianocna-posta-je-spat",
+      "anchors": [
+        "999 99 Ježiško",
+        "Taiwanu"
+      ]
+    },
+    {
+      "id": "se",
+      "url": "https://intl.postnord.com/jul-och-nyar/brev-till-tomten/",
+      "anchors": [
+        "173 00 Tomteboda",
+        "hela världen"
+      ]
+    },
+    {
+      "id": "no",
+      "url": "https://visitgreateroslo.com/en/drobak-and-oscarsborg/see-and-do/holidays/christmas-in-drobak/drobak-the-proven-home-of-santa-claus",
+      "anchors": [
+        "1440 Drøbak",
+        "Santa’s post office"
+      ]
     }
   ]
 }

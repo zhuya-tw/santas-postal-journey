@@ -17,7 +17,8 @@ CONFIG = ROOT / "config/sources.json"
 TW = "www.post.gov.tw"
 HOSTS = {TW, "www.canadapost-postescanada.ca", "www.deutschepost.de",
          "my.posti.fi", "www.laposte.fr", "api.boutique.laposte.fr", "www.post.at",
-         "shop.deutschepost.de"}
+         "shop.deutschepost.de", "www.garrel.de", "www.posta.sk", "www.vianocnaposta.sk",
+         "intl.postnord.com", "visitgreateroslo.com", "www.visitgreateroslo.com"}
 LIMIT = 8_000_000
 DATE = r"(?:11|12)/[0-3]?\d"
 

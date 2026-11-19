@@ -309,12 +309,16 @@
             {
               "label": "德國郵政目前活動頁",
               "url": "https://www.deutschepost.de/de/w/weihnachtspost/weihnachtsmann-christkind/nikolausdorf.html"
+            },
+            {
+              "label": "Garrel 鎮公所郵遞區號",
+              "url": "https://www.garrel.de/portal/seiten/kirchen-in-der-gemeinde-garrel-908000145-24300.html"
             }
           ],
-          "deadline": null,
-          "deadlineNote": null,
+          "deadline": "2026-12-14",
+          "deadlineNote": "依官方平安夜前十天換算的收件日",
           "checked": "2026-11-19",
-          "addressNote": "郵遞區號待確認。2025 年官方公告列 49681，目前活動頁列 46981，交寄前請向德國郵政確認。"
+          "addressAdvice": "建議使用 49681。德國郵政集郵公告與 Garrel 鎮公所資料均列 49681，活動頁仍列 46981。"
         }
       }
     },
@@ -379,6 +383,111 @@
             {
               "label": "奧地利郵政 2026 年地址與活動",
               "url": "https://www.post.at/p/c/postamt-christkindl"
+            }
+          ],
+          "deadline": null,
+          "deadlineNote": null,
+          "checked": "2026-11-19"
+        }
+      }
+    },
+    {
+      "id": "sk",
+      "country": "斯洛伐克",
+      "name": "Ježiško 聖嬰郵局",
+      "keywords": [
+        "Slovakia",
+        "Rajecká Lesná",
+        "Vianočná pošta"
+      ],
+      "cutoffRegion": null,
+      "cutoffRegional": false,
+      "seasons": {
+        "2026": {
+          "address": [
+            "Ježiško",
+            "999 99",
+            "SLOVAKIA"
+          ],
+          "replyType": "program",
+          "reply": "2026 年首封海外來信來自台灣。請寫完整回郵地址。官方提供斯洛伐克文、英文或點字回信。",
+          "sources": [
+            {
+              "label": "斯洛伐克郵政 2026 年公告",
+              "url": "https://www.posta.sk/clanky/vianocna-posta-je-spat"
+            },
+            {
+              "label": "聖誕郵局活動規則",
+              "url": "https://www.vianocnaposta.sk/o-vianocnej-poste/"
+            }
+          ],
+          "deadline": "2026-12-16",
+          "deadlineNote": "官方活動收件期末日",
+          "checked": "2026-11-19"
+        }
+      }
+    },
+    {
+      "id": "se",
+      "country": "瑞典",
+      "name": "Tomteboda 聖誕老人郵局",
+      "keywords": [
+        "Sweden",
+        "Tomten",
+        "PostNord"
+      ],
+      "cutoffRegion": "南、北歐地區",
+      "cutoffRegional": true,
+      "seasons": {
+        "2026": {
+          "address": [
+            "Tomten",
+            "173 00 Tomteboda",
+            "SWEDEN"
+          ],
+          "replyType": "program",
+          "reply": "PostNord 接收各國兒童的來信，附姓名及回郵地址可收到問候回信。官方公布的 12 月寄件日依瑞典境內郵票種類而異。",
+          "sources": [
+            {
+              "label": "PostNord 2026 年地址與回信規則",
+              "url": "https://intl.postnord.com/jul-och-nyar/brev-till-tomten/"
+            }
+          ],
+          "deadline": null,
+          "deadlineNote": null,
+          "checked": "2026-11-19"
+        }
+      }
+    },
+    {
+      "id": "no",
+      "country": "挪威",
+      "name": "Drøbak 聖誕老人郵局",
+      "keywords": [
+        "Norway",
+        "Julenissen",
+        "Drobak",
+        "Tregaardens Julehus"
+      ],
+      "cutoffRegion": "南、北歐地區",
+      "cutoffRegional": true,
+      "seasons": {
+        "2026": {
+          "address": [
+            "Julenissen",
+            "1440 Drøbak",
+            "NORWAY"
+          ],
+          "replyType": "occasional",
+          "reply": "官方旅遊機構確認 Drøbak 收信地址；當地團隊有回信紀錄。2026 年海外回信條件及收件期限待確認。",
+          "sources": [
+            {
+              "label": "Greater Oslo 官方旅遊資訊",
+              "url": "https://visitgreateroslo.com/en/drobak-and-oscarsborg/see-and-do/holidays/christmas-in-drobak/drobak-the-proven-home-of-santa-claus"
+            },
+            {
+              "label": "聖誕之家與回信歷史",
+              "url": "https://www.visitgreateroslo.com/en/retail/tregaardens-christmas-house-2"
             }
           ],
           "deadline": null,
