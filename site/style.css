@@ -5,17 +5,17 @@ body{margin:0}
 header{color:#fff6e4;background:#16392f;background-image:radial-gradient(ellipse at top right,#315747,transparent 70%)}
 nav{min-height:4.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;border-bottom:1px solid #ffffff45;flex-wrap:wrap;padding:.75rem 0}
 nav div{display:flex;gap:1.3rem;flex-wrap:wrap} nav a{color:inherit} .brand{text-decoration:none;font-family:Georgia,serif;font-weight:bold}
-.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.6fr);gap:1.75rem;align-items:center;padding:1.8rem 0 2rem}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.6fr);gap:1.75rem;align-items:center;padding:.85rem 0 1.1rem}
 .eyebrow,.postcard span,.postcard small{letter-spacing:.19em;font-size:.8rem;font-weight:700;color:#ecd3a0}
 h1,h2,h3{line-height:1.18;font-family:Georgia,"Noto Serif TC","PMingLiU",serif}
 .hero h1{font-size:clamp(1.55rem,4.8vw,3rem);margin:.3rem 0 .8rem;letter-spacing:.02em}
-.intro{max-width:31rem;margin-bottom:1.7rem}
+.hero .eyebrow{margin:0}.intro{max-width:31rem;margin:.45rem 0 .8rem}
 a{color:#792a37;text-underline-offset:.18em}
 .cta,button{display:inline-block;background:#f2deb5;color:#303525;border:1px solid transparent;border-radius:.35rem;padding:.6rem .95rem;font:inherit;font-weight:700;text-decoration:none;cursor:pointer}
-.postcard{position:relative;padding:clamp(.65rem,1.5vw,1rem);aspect-ratio:1.5;transform:rotate(-5deg);color:#782c3a;background:repeating-linear-gradient(135deg,#8b3744 0 9px,#f6e8ca 9px 19px,#426553 19px 28px,#f6e8ca 28px 38px) border-box;border:5px solid transparent;isolation:isolate;box-shadow:0 20px 40px #0a1c16a0;width:90%;max-width:176px;justify-self:center}
+.postcard{position:relative;padding:clamp(.65rem,1.5vw,1rem);aspect-ratio:1.5;transform:rotate(-5deg);color:#782c3a;background:repeating-linear-gradient(135deg,#8b3744 0 9px,#f6e8ca 9px 19px,#426553 19px 28px,#f6e8ca 28px 38px) border-box;border:8px solid transparent;isolation:isolate;box-shadow:0 20px 40px #0a1c16a0;width:90%;max-width:245px;justify-self:center}
 .postcard:before{content:"";position:absolute;inset:0;background:#f6e8ca;z-index:-1}
-.postcard strong{display:block;margin:.35rem 0;font:italic clamp(.95rem,2vw,1.5rem)/.95 Georgia,serif}
-.postcard span,.postcard small{color:#782c3a;font-size:.57rem}.stamp{float:right;border:3px dotted #f2d19c;background:#852e40;color:#fff2d7;font-size:1.15rem;padding:0 .4rem;transform:rotate(8deg)}
+.postcard strong{display:block;margin:.7rem 0;font:italic clamp(1.2rem,3.1vw,2.15rem)/.95 Georgia,serif}
+.postcard span,.postcard small{color:#782c3a}.stamp{float:right;border:3px dotted #f2d19c;background:#852e40;color:#fff2d7;font-size:1.15rem;padding:0 .4rem;transform:rotate(8deg)}
 section{padding:2rem 0;scroll-margin-top:1rem} h2{font-size:clamp(1.8rem,4vw,2.7rem);margin:.35rem 0 1rem}
 .filters{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem}
 label{font-weight:700}
@@ -40,7 +40,7 @@ footer{background:#16392f;color:#fff6e4;padding:1.4rem 0}
 .section-title{font-size:clamp(2rem,5vw,3.2rem);margin:.35rem 0 1rem;letter-spacing:0}
 .year-field{display:block;max-width:13rem}
 :focus-visible{outline:3px solid #ad5722;outline-offset:3px}
-@media(max-width:680px){.hero{grid-template-columns:1fr;padding:1.35rem 0 1.5rem;gap:1rem}.postcard{width:min(54%, 140px);margin:auto}.grid{grid-template-columns:1fr}.filters{grid-template-columns:1fr 1fr}.filters label:first-child{grid-column:1/-1}}
+@media(max-width:680px){.hero{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:.45rem .65rem;padding:.75rem 0 1rem}.hero>div:first-child{display:contents}.hero .eyebrow,.hero h1{grid-column:1/-1}.hero h1{margin:.1rem 0}.hero .intro{grid-column:1;margin:0}.hero .cta{grid-column:1;justify-self:start}.hero .postcard{grid-column:2;grid-row:3/span 2;width:min(100%,185px);margin:0}.postcard span,.postcard small{font-size:.58rem}.postcard strong{font-size:clamp(1rem,3.4vw,1.5rem);margin:.35rem 0}.grid{grid-template-columns:1fr}.filters{grid-template-columns:1fr 1fr}.filters label:first-child{grid-column:1/-1}}
 @media(max-width:350px){.filters{grid-template-columns:1fr}}
 
 .recommendation-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:.8rem}.recommendation-header h2{margin:0}
