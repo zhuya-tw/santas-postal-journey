@@ -184,8 +184,13 @@ async function start() {
   const recommendedCard = byId('recommended-card');
   const anotherAddress = byId('another-address');
   let recommended;
+  const setRecommendationVisible = visible => {
+    if (!recommendation) return;
+    recommendation.hidden = !visible;
+    randomButton.setAttribute('aria-expanded', String(visible));
+  };
   const renderRecommendation = (now = new Date()) => {
-    if (!recommended) return;
+    if (!recommended || recommendation.hidden) return;
     const selected = year.value;
     recommendedCard.replaceChildren(renderCard(
       recommended, recommended.seasons[selected], data.taiwan[selected], selected, now, 'recommend-copy-'
@@ -193,7 +198,7 @@ async function start() {
   };
   const recommend = () => {
     recommended = pickRecommendation(data.offices, year.value, recommended?.id);
-    recommendation.hidden = false;
+    setRecommendationVisible(true);
     anotherAddress.hidden = !recommended;
     if (recommended) renderRecommendation();
     else recommendedCard.replaceChildren(element('p', '這個年度還沒有可推薦的地址，請切換年份。'));
@@ -203,6 +208,10 @@ async function start() {
   if (randomButton) randomButton.disabled = false;
   randomButton?.addEventListener('click', recommend);
   anotherAddress?.addEventListener('click', recommend);
+  byId('close-recommendation')?.addEventListener('click', () => {
+    setRecommendationVisible(false);
+    randomButton.focus();
+  });
   const yearLinks = document.querySelectorAll('[data-year-link]');
   const renderAll = () => {
     const now = new Date();
@@ -223,7 +232,7 @@ async function start() {
     url.searchParams.set('year', year.value);
     history.replaceState(null, '', url);
     recommended = undefined;
-    if (recommendation) recommendation.hidden = true;
+    setRecommendationVisible(false);
     renderedDate = renderAll();
   });
   let renderedDate = renderAll();
