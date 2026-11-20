@@ -70,7 +70,7 @@ function renderCutoff(office, taiwan, year, now) {
   return box;
 }
 
-function renderCard(office, season, taiwan, year, now) {
+function renderCard(office, season, taiwan, year, now, copyPrefix = 'copy-') {
   const card = element('article', '', 'card');
   card.append(element('div', office.country, 'meta'), element('h3', office.name));
   const cutoff = renderCutoff(office, taiwan, year, now);
@@ -84,7 +84,7 @@ function renderCard(office, season, taiwan, year, now) {
   button.disabled = Boolean(season.addressNote);
   button.setAttribute('aria-label', '複製' + office.name + '地址');
   const status = element('div', '', 'meta');
-  status.id = 'copy-' + office.id;
+  status.id = copyPrefix + office.id;
   status.setAttribute('role', 'status');
   button.addEventListener('click', () => copyAddress(address, button, status));
   card.append(cutoff);
@@ -147,6 +147,16 @@ function renderTaiwan(taiwan, year, now) {
   container.append(scroll);
 }
 
+export function pickRecommendation(offices, year, previousId, random = Math.random) {
+  const eligible = offices.filter(office => {
+    const season = office.seasons[year];
+    return season?.address?.length && !season.addressNote;
+  });
+  const alternatives = eligible.filter(office => office.id !== previousId);
+  const pool = alternatives.length ? alternatives : eligible;
+  return pool[Math.floor(random() * pool.length)];
+}
+
 async function start() {
   const response = await fetch('./data/catalog.json', {cache: 'no-cache'});
   if (!response.ok) throw new Error('Catalog unavailable');
@@ -169,11 +179,36 @@ async function start() {
   };
   const search = byId('search');
   const reply = byId('reply');
+  const randomButton = byId('random-address');
+  const recommendation = byId('recommendation');
+  const recommendedCard = byId('recommended-card');
+  const anotherAddress = byId('another-address');
+  let recommended;
+  const renderRecommendation = (now = new Date()) => {
+    if (!recommended) return;
+    const selected = year.value;
+    recommendedCard.replaceChildren(renderCard(
+      recommended, recommended.seasons[selected], data.taiwan[selected], selected, now, 'recommend-copy-'
+    ));
+  };
+  const recommend = () => {
+    recommended = pickRecommendation(data.offices, year.value, recommended?.id);
+    recommendation.hidden = false;
+    anotherAddress.hidden = !recommended;
+    if (recommended) renderRecommendation();
+    else recommendedCard.replaceChildren(element('p', '這個年度還沒有可推薦的地址，請切換年份。'));
+    byId('recommendation-heading').focus({preventScroll: true});
+    recommendation.scrollIntoView({block: 'start'});
+  };
+  if (randomButton) randomButton.disabled = false;
+  randomButton?.addEventListener('click', recommend);
+  anotherAddress?.addEventListener('click', recommend);
   const yearLinks = document.querySelectorAll('[data-year-link]');
   const renderAll = () => {
     const now = new Date();
     if (search) render(now);
     else renderTaiwan(data.taiwan[year.value], year.value, now);
+    renderRecommendation(now);
     for (const link of yearLinks) {
       const url = new URL(link.href);
       url.searchParams.set('year', year.value);
@@ -187,6 +222,8 @@ async function start() {
     const url = new URL(location.href);
     url.searchParams.set('year', year.value);
     history.replaceState(null, '', url);
+    recommended = undefined;
+    if (recommendation) recommendation.hidden = true;
     renderedDate = renderAll();
   });
   let renderedDate = renderAll();

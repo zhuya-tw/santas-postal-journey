@@ -1,11 +1,19 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {airmailCutoff, cutoffStatus, matches} from '../site/app.mjs';
+import {airmailCutoff, cutoffStatus, matches, pickRecommendation} from '../site/app.mjs';
 
 const data = JSON.parse(readFileSync(new URL('../site/data/catalog.json', import.meta.url)));
 const canada = data.offices.find(office => office.id === 'ca');
 const finland = data.offices.find(office => office.id === 'fi');
+
+test('recommendations use the selected year and avoid repeating eligible addresses', () => {
+  const uncertain = {id: 'uncertain', seasons: {'2026': {address: ['Pending'], addressNote: '待確認'}}};
+  assert.equal(pickRecommendation([uncertain, canada, finland], '2026', 'ca', () => 0), finland);
+  assert.equal(pickRecommendation([canada], '2026', 'ca', () => 0), canada);
+  assert.equal(pickRecommendation([uncertain], '2026', undefined, () => 0), undefined);
+  assert.equal(pickRecommendation([canada], '2027', undefined, () => 0), undefined);
+});
 
 test('search by multilingual names, postcodes and multiple terms', () => {
   assert(matches(canada, canada.seasons['2026'], '加拿大 Ｈ０Ｈ', 'program'));
