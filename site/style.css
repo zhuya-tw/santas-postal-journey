@@ -9,7 +9,8 @@ nav div{display:flex;gap:1.3rem;flex-wrap:wrap} nav a{color:inherit} .brand{text
 .eyebrow,.postcard span,.postcard small{letter-spacing:.19em;font-size:.8rem;font-weight:700;color:#ecd3a0}
 h1,h2,h3{line-height:1.18;font-family:Georgia,"Noto Serif TC","PMingLiU",serif}
 .hero h1{font-size:clamp(1.55rem,4.8vw,3rem);margin:.3rem 0 .8rem;letter-spacing:.02em}
-.hero .eyebrow{margin:0}.intro{max-width:31rem;margin:.45rem 0 .8rem}
+.hero .eyebrow{margin:0}.intro{margin:.45rem 0 .8rem}
+ .keep-together{white-space:nowrap}
 a{color:#792a37;text-underline-offset:.18em}
 .cta,button{display:inline-block;background:#f2deb5;color:#303525;border:1px solid transparent;border-radius:.35rem;padding:.6rem .95rem;font:inherit;font-weight:700;text-decoration:none;cursor:pointer}
 .postcard{position:relative;padding:clamp(.65rem,1.5vw,1rem);aspect-ratio:1.5;transform:rotate(-5deg);color:#782c3a;background:repeating-linear-gradient(135deg,#8b3744 0 9px,#f6e8ca 9px 19px,#426553 19px 28px,#f6e8ca 28px 38px) border-box;border:8px solid transparent;isolation:isolate;box-shadow:0 20px 40px #0a1c16a0;width:90%;max-width:245px;justify-self:center}
