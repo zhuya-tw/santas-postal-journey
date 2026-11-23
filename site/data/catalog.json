@@ -26,7 +26,9 @@
           ],
           "deadline": null,
           "deadlineNote": null,
-          "checked": "2026-11-19"
+          "checked": "2026-11-19",
+          "activity": "address",
+          "shipping": "recommended"
         }
       },
       "cutoffRegion": "加拿大"
@@ -59,7 +61,9 @@
           ],
           "deadline": "2026-12-13",
           "deadlineNote": "官方建議最晚寄出日",
-          "checked": "2026-11-19"
+          "checked": "2026-11-19",
+          "activity": "announced",
+          "shipping": "recommended"
         }
       },
       "cutoffRegion": "法國、德國"
@@ -98,7 +102,9 @@
           ],
           "deadline": null,
           "deadlineNote": null,
-          "checked": "2026-11-19"
+          "checked": "2026-11-19",
+          "activity": "address",
+          "shipping": "recommended"
         }
       },
       "cutoffRegion": "南、北歐地區",
@@ -130,7 +136,9 @@
           ],
           "deadline": null,
           "deadlineNote": null,
-          "checked": "2026-11-19"
+          "checked": "2026-11-19",
+          "activity": "address",
+          "shipping": "recommended"
         }
       },
       "cutoffRegion": "法國、德國"
@@ -163,7 +171,9 @@
           ],
           "deadline": "2026-12-06",
           "deadlineNote": "依官方第二個降臨主日換算的收件日",
-          "checked": "2026-11-19"
+          "checked": "2026-11-19",
+          "activity": "announced",
+          "shipping": "recommended"
         }
       }
     },
@@ -195,7 +205,9 @@
           ],
           "deadline": "2026-12-19",
           "deadlineNote": "依官方平安夜前五天換算的收件日",
-          "checked": "2026-11-19"
+          "checked": "2026-11-19",
+          "activity": "announced",
+          "shipping": "recommended"
         }
       }
     },
@@ -227,7 +239,9 @@
           ],
           "deadline": null,
           "deadlineNote": null,
-          "checked": "2026-11-19"
+          "checked": "2026-11-19",
+          "activity": "address",
+          "shipping": "recommended"
         }
       }
     },
@@ -260,7 +274,9 @@
           ],
           "deadline": "2026-12-17",
           "deadlineNote": "個人信件最晚送達日",
-          "checked": "2026-11-19"
+          "checked": "2026-11-19",
+          "activity": "announced",
+          "shipping": "recommended"
         }
       }
     },
@@ -318,7 +334,9 @@
           "deadline": "2026-12-14",
           "deadlineNote": "依官方平安夜前十天換算的收件日",
           "checked": "2026-11-19",
-          "addressAdvice": "建議使用 49681。德國郵政集郵公告與 Garrel 鎮公所資料均列 49681，活動頁仍列 46981。"
+          "addressAdvice": "建議使用 49681。德國郵政集郵公告與 Garrel 鎮公所資料均列 49681，活動頁仍列 46981。",
+          "activity": "announced",
+          "shipping": "recommended"
         }
       }
     },
@@ -351,7 +369,9 @@
           ],
           "deadline": "2026-12-21",
           "deadlineNote": "官方頁面所列最晚送達日",
-          "checked": "2026-11-19"
+          "checked": "2026-11-19",
+          "activity": "announced",
+          "shipping": "recommended"
         }
       }
     },
@@ -387,7 +407,9 @@
           ],
           "deadline": null,
           "deadlineNote": null,
-          "checked": "2026-11-19"
+          "checked": "2026-11-19",
+          "activity": "announced",
+          "shipping": "check"
         }
       }
     },
@@ -423,7 +445,9 @@
           ],
           "deadline": "2026-12-16",
           "deadlineNote": "官方活動收件期末日",
-          "checked": "2026-11-19"
+          "checked": "2026-11-19",
+          "activity": "announced",
+          "shipping": "recommended"
         }
       }
     },
@@ -455,7 +479,9 @@
           ],
           "deadline": null,
           "deadlineNote": null,
-          "checked": "2026-11-19"
+          "checked": "2026-11-19",
+          "activity": "announced",
+          "shipping": "recommended"
         }
       }
     },
@@ -492,7 +518,9 @@
           ],
           "deadline": null,
           "deadlineNote": null,
-          "checked": "2026-11-19"
+          "checked": "2026-11-19",
+          "activity": "address",
+          "shipping": "check"
         }
       }
     }

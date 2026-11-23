@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="從台灣寄信給聖誕老人。查詢世界聖誕郵局、中華郵政截郵日期。">
 <title>Santa’s Postal Journey｜世界聖誕郵局</title>
-<link rel="stylesheet" href="./style.css?v=12">
-<script type="module" src="./app.mjs?v=13"></script>
+<link rel="stylesheet" href="./style.css?v=13">
+<script type="module" src="./app.mjs?v=14"></script>
 </head>
 <body>
 <header>
@@ -31,10 +31,12 @@
 <div class="filters">
 <label>搜尋郵局<input id="search" type="search" placeholder="國家、郵局或郵遞區號"></label>
 <label>年份<select id="year"></select></label>
+<label>寄件建議<select id="shipping"><option value="">全部</option><option value="recommended">適合從台灣寄</option><option value="check">先確認寄件條件</option><option value="restricted">有限制或建議暫緩</option></select></label>
+<label>活動查核<select id="activity"><option value="">全部</option><option value="announced">有當年度活動公告</option><option value="address">有地址或一般規則，年度未確認</option><option value="pending">活動或現行地址待確認</option></select></label>
 </div>
 <div class="cutoff-options">
 <label><input id="show-expired" type="checkbox" aria-controls="cards">顯示已過截郵的郵局</label>
-<p>依台灣聖誕航空函件的截郵日排序。日期未公布或無法對應的郵局會排在後面。</p>
+<p>依台灣聖誕航空函件的截郵日排序。日期待確認的郵局會排在後面。寄件建議依地址與收寄條件判斷，回信依各活動規則。</p>
 </div>
 <p id="results" role="status">載入圖鑑中…</p>
 <div id="cards" class="grid"></div>

@@ -14,7 +14,9 @@
           "NETHERLANDS"
         ],
         "restriction": "須附回郵郵票，台灣回郵條件待確認。",
-        "referenceOnly": true
+        "referenceOnly": true,
+        "shipping": "check",
+        "activity": "announced"
       }
     }
   },
@@ -33,7 +35,9 @@
           "USA"
         ],
         "restriction": "海外回信條件待確認。",
-        "referenceOnly": true
+        "referenceOnly": true,
+        "shipping": "check",
+        "activity": "address"
       }
     }
   },
@@ -53,7 +57,9 @@
           "UNITED KINGDOM"
         ],
         "restriction": "台灣回信條件待確認。",
-        "referenceOnly": true
+        "referenceOnly": true,
+        "shipping": "check",
+        "activity": "announced"
       }
     }
   },
@@ -72,7 +78,9 @@
           "225063 BELARUS"
         ],
         "restriction": "海外來信條件待確認。",
-        "referenceOnly": true
+        "referenceOnly": true,
+        "shipping": "check",
+        "activity": "address"
       }
     }
   },
@@ -86,12 +94,15 @@
       "2026": {
         "address": [
           "Московская усадьба Деда Мороза",
+          "Кузьминский лес",
           "Волгоградский проспект, вл. 168Д",
           "Москва 109472",
           "RUSSIA"
         ],
-        "restriction": "海外來信條件待確認。",
-        "referenceOnly": true
+        "restriction": "台灣可寄普通航空信，海外回信待確認。",
+        "referenceOnly": true,
+        "shipping": "recommended",
+        "activity": "address"
       }
     }
   },
@@ -110,7 +121,9 @@
           "LUXEMBOURG"
         ],
         "restriction": "台灣寄件條件待確認。",
-        "referenceOnly": true
+        "referenceOnly": true,
+        "shipping": "check",
+        "activity": "announced"
       }
     }
   },
@@ -126,7 +139,9 @@
           "Weihnachtsmann in Himmelreich, 31535 Neustadt am Rübenberge, Germany"
         ],
         "restriction": "舊地址，寄件前請確認收件。",
-        "referenceOnly": true
+        "referenceOnly": true,
+        "shipping": "check",
+        "activity": "pending"
       }
     }
   },
@@ -142,7 +157,9 @@
           "Weihnachtsmann, 99706 Himmelsberg, Germany"
         ],
         "restriction": "舊地址，寄件前請確認收件。",
-        "referenceOnly": true
+        "referenceOnly": true,
+        "shipping": "check",
+        "activity": "pending"
       }
     }
   },
@@ -159,7 +176,9 @@
           "2412 Julebyen"
         ],
         "restriction": "台灣寄件條件待確認。",
-        "referenceOnly": true
+        "referenceOnly": true,
+        "shipping": "check",
+        "activity": "announced"
       }
     }
   },
@@ -175,7 +194,9 @@
           "Sinterklaas, Spanjestraat 1, B-0612 Hemel, Belgium"
         ],
         "restriction": "須使用當地紅色郵筒。",
-        "referenceOnly": true
+        "referenceOnly": true,
+        "shipping": "restricted",
+        "activity": "address"
       }
     }
   },
@@ -191,7 +212,9 @@
           "Santa, North Pole, Irland"
         ],
         "restriction": "須使用當地郵筒或郵局。",
-        "referenceOnly": true
+        "referenceOnly": true,
+        "shipping": "restricted",
+        "activity": "address"
       }
     }
   },
@@ -204,10 +227,15 @@
     "seasons": {
       "2026": {
         "address": [
-          "Väterchen Frosts Haus (Дед Мороз), 162390 Weliki Ustjug, Oblast Wologda, Russia"
+          "Дом Деда Мороза",
+          "Великий Устюг, Вологодская область",
+          "162390",
+          "RUSSIA"
         ],
-        "restriction": "舊地址，寄件前請確認收件。",
-        "referenceOnly": true
+        "restriction": "台灣可寄普通航空信，海外回信待確認。",
+        "referenceOnly": true,
+        "shipping": "recommended",
+        "activity": "announced"
       }
     }
   },
@@ -223,7 +251,9 @@
           "香港郵政總部（聖誕老人收），香港中環康樂廣場二號"
         ],
         "restriction": "舊總部地址，請勿寄往此址。",
-        "referenceOnly": true
+        "referenceOnly": true,
+        "shipping": "restricted",
+        "activity": "pending"
       }
     }
   },
@@ -242,7 +272,9 @@
           "Père Noël, pôle Nord"
         ],
         "restriction": "舊地址，寄件前請確認收件。",
-        "referenceOnly": true
+        "referenceOnly": true,
+        "shipping": "check",
+        "activity": "pending"
       }
     }
   },
@@ -258,7 +290,9 @@
           "Julenissen i Norge (Santa Claus in Norway), Savalen 2500 Tynset, Norway"
         ],
         "restriction": "舊地址，寄件前請確認收件。",
-        "referenceOnly": true
+        "referenceOnly": true,
+        "shipping": "check",
+        "activity": "pending"
       }
     }
   },
@@ -274,8 +308,10 @@
           "Santa Claus, 2412 Nuuk, Greenland",
           "Santa Claus Nordpolen, Julemandens Postkontor, DK-3900 Nuuk, Greenland"
         ],
-        "restriction": "舊地址，寄件前請確認收件。",
-        "referenceOnly": true
+        "restriction": "中華郵政現行航空郵件收寄清單未列格陵蘭，建議暫緩。",
+        "referenceOnly": true,
+        "shipping": "restricted",
+        "activity": "pending"
       }
     }
   },
@@ -291,7 +327,9 @@
           "Santa Claus, Santa's Workshop, North Pole 0001, New Zealand"
         ],
         "restriction": "回信限當地居民。",
-        "referenceOnly": true
+        "referenceOnly": true,
+        "shipping": "restricted",
+        "activity": "address"
       }
     }
   },
@@ -307,7 +345,9 @@
           "Santa Clause, Christmastown, North Pole, 9999, Australien"
         ],
         "restriction": "2026 年須在當地櫃台交信。",
-        "referenceOnly": true
+        "referenceOnly": true,
+        "shipping": "restricted",
+        "activity": "announced"
       }
     }
   },
@@ -325,7 +365,9 @@
           "Santa Claus, P.O. Box 56009, North Pole, Alaska, 99705-1099, USA"
         ],
         "restriction": "付費訂購服務。",
-        "referenceOnly": true
+        "referenceOnly": true,
+        "shipping": "restricted",
+        "activity": "address"
       }
     }
   },
@@ -345,7 +387,9 @@
           "USA"
         ],
         "restriction": "郵戳專用，須自備回信及雙層信封。",
-        "referenceOnly": true
+        "referenceOnly": true,
+        "shipping": "restricted",
+        "activity": "address"
       }
     }
   },
@@ -365,7 +409,9 @@
           "GERMANY"
         ],
         "restriction": "郵戳專用。",
-        "referenceOnly": true
+        "referenceOnly": true,
+        "shipping": "restricted",
+        "activity": "address"
       }
     }
   }

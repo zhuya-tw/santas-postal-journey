@@ -31,7 +31,9 @@ export function sortByCutoff(offices, taiwan, year, showExpired = false, now = n
     .map(entry => entry.office);
 }
 
-export function matches(office, season, query, reply) {
+export function matches(office, season, query, reply, {shipping, activity} = {}) {
+  if (shipping && (season?.shipping ?? 'check') !== shipping) return false;
+  if (activity && (season?.activity ?? 'pending') !== activity) return false;
   const visible = [office.country, office.name, ...office.keywords, ...(season?.address ?? [])];
   return (!reply || season?.replyType === reply) &&
     normalize(query).split(/\s+/).every(term => normalize(visible.join(' ')).includes(term));
@@ -124,9 +126,15 @@ async function start() {
   for (const value of years) year.append(new Option(value + ' 年', value));
   year.value = years.includes(requested) ? requested : current;
   const showExpired = byId('show-expired');
+  const shipping = byId('shipping');
+  const activity = byId('activity');
   const render = (now = new Date()) => {
     const query = byId('search').value;
-    const matching = data.offices.filter(office => office.seasons[year.value] && matches(office, office.seasons[year.value], query, ''));
+    const filters = {shipping: shipping.value, activity: activity.value};
+    const matching = data.offices.filter(office => {
+      const season = office.seasons[year.value];
+      return season && matches(office, season, query, '', filters);
+    });
     const offices = sortByCutoff(matching, data.taiwan[year.value], year.value, showExpired.checked, now);
     byId('results').textContent = offices.length ? offices.length + ' 間郵局' : '找不到符合條件的郵局。';
     const selected = year.value;
@@ -174,7 +182,9 @@ async function start() {
     return taipeiDate.format(now);
   };
   search?.addEventListener('input', () => render());
-  showExpired?.addEventListener('change', () => render());
+  for (const control of [showExpired, shipping, activity]) {
+    control.addEventListener('change', () => render());
+  }
   year.addEventListener('change', () => {
     const url = new URL(location.href);
     url.searchParams.set('year', year.value);
