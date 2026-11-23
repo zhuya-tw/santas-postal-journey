@@ -174,7 +174,7 @@
         "address": [
           "Sinterklaas, Spanjestraat 1, B-0612 Hemel, Belgium"
         ],
-        "restriction": "須使用當地紅色郵筒。下列為舊地址。",
+        "restriction": "須使用當地紅色郵筒。",
         "referenceOnly": true
       }
     }
@@ -190,7 +190,7 @@
         "address": [
           "Santa, North Pole, Irland"
         ],
-        "restriction": "須使用當地郵筒或郵局。下列為舊地址。",
+        "restriction": "須使用當地郵筒或郵局。",
         "referenceOnly": true
       }
     }
@@ -290,7 +290,7 @@
         "address": [
           "Santa Claus, Santa's Workshop, North Pole 0001, New Zealand"
         ],
-        "restriction": "回信限當地居民。下列為舊地址。",
+        "restriction": "回信限當地居民。",
         "referenceOnly": true
       }
     }
@@ -306,7 +306,7 @@
         "address": [
           "Santa Clause, Christmastown, North Pole, 9999, Australien"
         ],
-        "restriction": "2026 年須在當地櫃台交信。下列為舊地址。",
+        "restriction": "2026 年須在當地櫃台交信。",
         "referenceOnly": true
       }
     }
@@ -324,7 +324,7 @@
           "Santa Claus, 1 Santa Claus Lane, North Pole, 99705, U.S.A",
           "Santa Claus, P.O. Box 56009, North Pole, Alaska, 99705-1099, USA"
         ],
-        "restriction": "付費訂購服務。下列為舊地址。",
+        "restriction": "付費訂購服務。",
         "referenceOnly": true
       }
     }

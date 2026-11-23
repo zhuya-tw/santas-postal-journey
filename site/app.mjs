@@ -79,13 +79,13 @@ function renderCutoff(office, taiwan, year, now) {
 function renderCard(office, season, taiwan, year, now) {
   const card = element('article', '', 'card');
   const title = office.name.startsWith(office.country) ? office.name : office.country + '・' + office.name;
-  card.append(element('h3', title));
+  card.append(element('h3', title), renderCutoff(office, taiwan, year, now));
   if (season) {
     const address = element('address', season.address.join('\n'));
     card.append(address);
     const restriction = season.restriction ?? season.addressNote ?? (office.id === "at" ? "海外寄件須附國際回郵券及寫妥地址的回郵信封。" : null);
     if (restriction) card.append(element('p', restriction));
-    if (!season.referenceOnly && !season.addressNote) {
+    if (season.address.length) {
       const button = element('button', '複製地址');
       button.type = 'button';
       button.setAttribute('aria-label', '複製' + title + '地址');
@@ -95,7 +95,7 @@ function renderCard(office, season, taiwan, year, now) {
       card.append(button, status);
     }
   }
-  card.append(renderCutoff(office, taiwan, year, now));
+
   return card;
 }
 
