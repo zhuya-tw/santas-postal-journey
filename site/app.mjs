@@ -119,11 +119,12 @@ async function start() {
   const data = {...catalog, offices: [...catalog.offices, ...additional]};
   const year = byId('year');
   const current = taipeiDate.format(new Date()).slice(0, 4);
-  const years = [...new Set([current, ...Object.keys(data.taiwan),
-    ...data.offices.flatMap(office => Object.keys(office.seasons))])].sort().reverse();
+  const years = [...new Set(data.offices.flatMap(office => Object.entries(office.seasons)
+    .filter(([season, details]) => season >= '2026' && details.address?.length)
+    .map(([season]) => season)))].sort().reverse();
   const requested = new URL(location.href).searchParams.get('year');
   for (const value of years) year.append(new Option(value + ' 年', value));
-  year.value = years.includes(requested) ? requested : current;
+  year.value = years.includes(requested) ? requested : years.includes(current) ? current : (years[0] ?? '');
   const showExpired = byId('show-expired');
   const shipping = byId('shipping');
   const render = (now = new Date()) => {
