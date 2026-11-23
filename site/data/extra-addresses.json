@@ -408,9 +408,9 @@
           "92627 Weiden",
           "GERMANY"
         ],
-        "restriction": "郵戳專用。",
+        "restriction": "郵戳專用。請註明所需郵戳，並依德國郵政規則準備郵資與回郵。",
         "referenceOnly": true,
-        "shipping": "restricted",
+        "shipping": "recommended",
         "activity": "address"
       }
     }
