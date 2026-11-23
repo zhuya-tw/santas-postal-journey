@@ -18,6 +18,10 @@ a{color:#792a37;text-underline-offset:.18em}
 .postcard strong{display:block;margin:.7rem 0;font:italic clamp(1.2rem,3.1vw,2.15rem)/.95 Georgia,serif}
 .postcard span,.postcard small{color:#782c3a}.stamp{float:right;border:3px dotted #f2d19c;background:#852e40;color:#fff2d7;font-size:1.15rem;padding:0 .4rem;transform:rotate(8deg)}
 section{padding:2rem 0;scroll-margin-top:1rem} h2{font-size:clamp(1.8rem,4vw,2.7rem);margin:.35rem 0 1rem}
+.cutoff-options{margin-top:.8rem}
+.cutoff-options label{display:inline-flex;align-items:center;gap:.45rem;cursor:pointer}
+.cutoff-options input{width:1.1rem;height:1.1rem;margin:0;accent-color:#214437}
+.cutoff-options p{margin:.25rem 0 0}
 .filters{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem}
 label{font-weight:700}
 input,select{display:block;width:100%;min-width:0;padding:.65rem;margin-top:.25rem;background:#fffaf0;color:inherit;border:1px solid #908375;border-radius:.35rem;font:inherit}

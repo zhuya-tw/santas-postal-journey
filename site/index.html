@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="從台灣寄信給聖誕老人。查詢世界聖誕郵局、官方回信政策與中華郵政歷年截郵日期。">
 <title>Santa’s Postal Journey｜世界聖誕郵局</title>
-<link rel="stylesheet" href="./style.css?v=10">
-<script type="module" src="./app.mjs?v=9"></script>
+<link rel="stylesheet" href="./style.css?v=11">
+<script type="module" src="./app.mjs?v=10"></script>
 </head>
 <body>
 <header>
@@ -32,6 +32,10 @@
 <label>搜尋郵局<input id="search" type="search" placeholder="國家、郵局或郵遞區號"></label>
 <label>年份<select id="year"></select></label>
 <label>回信方式<select id="reply"><option value="">全部</option><option value="program">提供回信</option><option value="occasional">有時回信</option></select></label>
+</div>
+<div class="cutoff-options">
+<label><input id="show-expired" type="checkbox" aria-controls="cards">顯示已過截郵的郵局</label>
+<p>依台灣聖誕航空函件的截郵日排序。日期未公布或無法對應的郵局會排在後面。</p>
 </div>
 <p id="results" role="status">載入圖鑑中…</p>
 <div id="cards" class="grid"></div>

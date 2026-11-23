@@ -19,6 +19,20 @@ export function airmailCutoff(office, taiwan, year) {
   return date ? year + '-' + date : null;
 }
 
+export function sortByCutoff(offices, taiwan, year, showExpired = false, now = new Date()) {
+  const today = taipeiDate.format(now);
+  const entries = offices.map(office => {
+    const date = airmailCutoff(office, taiwan, year);
+    const group = !date ? 1 : date < today ? 2 : 0;
+    return {office, date, group};
+  });
+  return entries
+    .filter(entry => showExpired || entry.group !== 2)
+    .sort((a, b) => a.group - b.group || (a.group === 1 ? 0 :
+      a.group === 2 ? b.date.localeCompare(a.date) : a.date.localeCompare(b.date)))
+    .map(entry => entry.office);
+}
+
 export function matches(office, season, query, reply) {
   const visible = [office.country, office.name, ...office.keywords, ...(season?.address ?? [])];
   return (!reply || season?.replyType === reply) &&
@@ -168,10 +182,12 @@ async function start() {
   const requested = new URL(location.href).searchParams.get('year');
   for (const value of years) year.append(new Option(value + ' 年', value));
   year.value = years.includes(requested) ? requested : current;
+  const showExpired = byId('show-expired');
   const render = (now = new Date()) => {
     const query = byId('search').value;
     const reply = byId('reply').value;
-    const offices = data.offices.filter(office => matches(office, office.seasons[year.value], query, reply));
+    const matching = data.offices.filter(office => matches(office, office.seasons[year.value], query, reply));
+    const offices = sortByCutoff(matching, data.taiwan[year.value], year.value, showExpired.checked, now);
     byId('results').textContent = offices.length ? offices.length + ' 間郵局' : '找不到符合條件的郵局。';
     const selected = year.value;
     byId('cards').replaceChildren(...offices.map(office =>
@@ -227,6 +243,7 @@ async function start() {
   };
   search?.addEventListener('input', () => render());
   reply?.addEventListener('change', () => render());
+  showExpired?.addEventListener('change', () => render());
   year.addEventListener('change', () => {
     const url = new URL(location.href);
     url.searchParams.set('year', year.value);
