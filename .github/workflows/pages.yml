@@ -77,11 +77,14 @@ jobs:
           git add site/data/catalog.json
           git commit -m "Add validated Chunghwa Post seasonal cutoff table"
           git push origin HEAD
+      - name: Prepare public card data
+        if: env.MAINTENANCE_ONLY != 'true'
+        run: node scripts/prepare_public_site.mjs
       - name: Upload verified site
         if: env.MAINTENANCE_ONLY != 'true'
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: public-site
       - name: Save evidence for review
         if: (success() || failure()) && hashFiles('review-report.json') != ''
         uses: actions/upload-artifact@v4

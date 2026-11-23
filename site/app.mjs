@@ -1,5 +1,3 @@
-import {addPostage} from './postage.mjs?v=1';
-
 const byId = id => document.getElementById(id);
 const normalize = value => value.normalize('NFKC').toLowerCase().trim();
 const taipeiDate = new Intl.DateTimeFormat('sv-SE', {timeZone: 'Asia/Taipei',
@@ -61,12 +59,6 @@ function element(tag, value, cls) {
   return node;
 }
 
-function link(label, url) {
-  const node = element('a', label);
-  node.href = url;
-  return node;
-}
-
 function renderCutoff(office, taiwan, year, now) {
   const box = element('div', '', 'cutoff');
   box.append(element('strong', '台灣截郵｜聖誕・航空函件'));
@@ -79,136 +71,53 @@ function renderCutoff(office, taiwan, year, now) {
   time.dateTime = date;
   const line = element('div');
   line.append(time, ' · ', cutoffStatus(date, now));
-  const label = office.cutoffRegional ? '中華郵政區域參考：' : '中華郵政：';
-  box.append(line, link(label + office.cutoffRegion, taiwan.pdf));
+  if (office.cutoffRegional || office.cutoffRegion?.endsWith('地區')) line.append('（區域參考）');
+  box.append(line);
   return box;
 }
 
-function renderCard(office, season, taiwan, year, now, copyPrefix = 'copy-') {
+function renderCard(office, season, taiwan, year, now) {
   const card = element('article', '', 'card');
-  card.append(element('div', office.country, 'meta'), element('h3', office.name));
-  const cutoff = renderCutoff(office, taiwan, year, now);
-  if (!season) {
-    card.append(cutoff, element('p', '這個年度尚無已查核的郵局資料。'));
-    return card;
-  }
-  const address = element('address', season.address.join('\n'));
-  const button = element('button', '複製地址');
-  button.type = 'button';
-  button.disabled = Boolean(season.addressNote);
-  button.setAttribute('aria-label', '複製' + office.name + '地址');
-  const status = element('div', '', 'meta');
-  status.id = copyPrefix + office.id;
-  status.setAttribute('role', 'status');
-  button.addEventListener('click', () => copyAddress(address, button, status));
-  card.append(cutoff);
-  const addressMessage = season.addressNote ?? season.addressAdvice;
-  if (addressMessage) card.append(element('p', addressMessage));
-  card.append(address, button, status, element('p', season.reply), element('p',
-    '當地活動期限：' + (season.deadline ? season.deadline + '（' + season.deadlineNote + '）' : '未列經查核的年度日期')));
-  const sources = element('ul');
-  for (const source of season.sources) {
-    const item = element('li');
-    item.append(link(source.label, source.url));
-    sources.append(item);
-  }
-  addPostage(address, office.country);
-  card.append(sources, element('p', '查核日 ' + season.checked, 'meta'));
-  return card;
-}
-
-function renderTaiwan(taiwan, year, now) {
-  const citation = byId('tw-source');
-  const container = byId('table');
-  citation.replaceChildren();
-  container.replaceChildren();
-  if (!taiwan) {
-    citation.textContent = year + ' 年尚無已查核的中華郵政截郵表。';
-    return;
-  }
-  citation.append(link(year + ' 年官方公告', taiwan.source), ' · ', link('原始 PDF', taiwan.pdf));
-  const scroll = element('div', '', 'table-scroll');
-  const table = element('table');
-  table.setAttribute('aria-label', year + ' 年中華郵政截郵日期');
-  const header = table.createTHead().insertRow();
-  for (const title of ['洲別', '寄達地區', '聖誕・航空函件']) {
-    const cell = element('th', title);
-    cell.scope = 'col';
-    header.append(cell);
-  }
-  const groups = new Map([['香港', '亞洲'], ['法國、德國', '歐洲'], ['美國', '美洲'],
-    ['南非', '非洲'], ['澳大利亞', '大洋洲']]);
-  let body;
-  let continent;
-  for (const [region, date] of taiwan.rows) {
-    if (!body || groups.has(region)) {
-      body = table.createTBody();
-      continent = element('th', groups.get(region) ?? '');
-      continent.scope = 'rowgroup';
-      continent.className = 'continent';
+  const title = office.name.startsWith(office.country) ? office.name : office.country + '・' + office.name;
+  card.append(element('h3', title));
+  if (season) {
+    const address = element('address', season.address.join('\n'));
+    card.append(address);
+    const restriction = season.restriction ?? season.addressNote ?? (office.id === "at" ? "海外寄件須附國際回郵券及寫妥地址的回郵信封。" : null);
+    if (restriction) card.append(element('p', restriction));
+    if (!season.referenceOnly && !season.addressNote) {
+      const button = element('button', '複製地址');
+      button.type = 'button';
+      button.setAttribute('aria-label', '複製' + title + '地址');
+      const status = element('div');
+      status.setAttribute('role', 'status');
+      button.addEventListener('click', () => copyAddress(address, button, status));
+      card.append(button, status);
     }
-    const row = body.insertRow();
-    if (body.rows.length === 1) row.append(continent);
-    continent.rowSpan = body.rows.length;
-    const label = element('th', region);
-    label.scope = 'row';
-    row.append(label);
-    const time = element('time', date.replace('-', '/'));
-    time.dateTime = year + '-' + date;
-    row.insertCell().append(time, ' · ', cutoffStatus(time.dateTime, now));
   }
-  scroll.append(table);
-  container.append(scroll);
+  card.append(renderCutoff(office, taiwan, year, now));
+  return card;
 }
 
 export function pickRecommendation(offices, year, previousId, random = Math.random) {
   const eligible = offices.filter(office => {
     const season = office.seasons[year];
-    return season?.address?.length && !season.addressNote;
+    return season?.address?.length && !season.addressNote && !season.referenceOnly;
   });
   const alternatives = eligible.filter(office => office.id !== previousId);
   const pool = alternatives.length ? alternatives : eligible;
   return pool[Math.floor(random() * pool.length)];
 }
 
-function renderHistoricalAddresses(grid, year, taiwan) {
-  const offices = [...grid.children].map(card => {
-    const cutoffRegion = card.dataset.cutoffRegion;
-    const placeholder = element('div');
-
-    card.querySelector('.meta').after(placeholder);
-    return {card, placeholder, cutoffRegion, cutoffRegional: cutoffRegion?.endsWith('地區')};
-  });
-  let renderedDate;
-  const refresh = () => {
-    const now = new Date();
-    const today = taipeiDate.format(now);
-    if (today === renderedDate) return;
-    renderedDate = today;
-    for (const office of sortByCutoff(offices, taiwan, year, true, now)) {
-      const cutoff = renderCutoff(office, taiwan, year, now);
-      office.placeholder.replaceWith(cutoff);
-      office.placeholder = cutoff;
-      grid.append(office.card);
-    }
-  };
-  refresh();
-  window.setInterval(refresh, 60_000);
-  document.addEventListener('visibilitychange', refresh);
-}
-
 async function start() {
-  const response = await fetch('./data/catalog.json', {cache: 'no-cache'});
-  if (!response.ok) throw new Error('Catalog unavailable');
-  const data = await response.json();
+  const [catalog, additional] = await Promise.all(['catalog', 'extra-addresses'].map(async file => {
+    const response = await fetch('./data/' + file + '.json', {cache: 'no-cache'});
+    if (!response.ok) throw new Error('Catalog unavailable');
+    return response.json();
+  }));
+  const data = {...catalog, offices: [...catalog.offices, ...additional]};
   const year = byId('year');
   const current = taipeiDate.format(new Date()).slice(0, 4);
-  const archiveGrid = byId('archive-cutoff-grid');
-  if (archiveGrid) {
-
-    renderHistoricalAddresses(archiveGrid, current, data.taiwan[current]);
-    return;
-  }
   const years = [...new Set([current, ...Object.keys(data.taiwan),
     ...data.offices.flatMap(office => Object.keys(office.seasons))])].sort().reverse();
   const requested = new URL(location.href).searchParams.get('year');
@@ -217,8 +126,7 @@ async function start() {
   const showExpired = byId('show-expired');
   const render = (now = new Date()) => {
     const query = byId('search').value;
-    const reply = byId('reply').value;
-    const matching = data.offices.filter(office => matches(office, office.seasons[year.value], query, reply));
+    const matching = data.offices.filter(office => office.seasons[year.value] && matches(office, office.seasons[year.value], query, ''));
     const offices = sortByCutoff(matching, data.taiwan[year.value], year.value, showExpired.checked, now);
     byId('results').textContent = offices.length ? offices.length + ' 間郵局' : '找不到符合條件的郵局。';
     const selected = year.value;
@@ -226,7 +134,6 @@ async function start() {
       renderCard(office, office.seasons[selected], data.taiwan[selected], selected, now)));
   };
   const search = byId('search');
-  const reply = byId('reply');
   const randomButton = byId('random-address');
   const recommendation = byId('recommendation');
   const recommendedCard = byId('recommended-card');
@@ -241,11 +148,11 @@ async function start() {
     if (!recommended || recommendation.hidden) return;
     const selected = year.value;
     recommendedCard.replaceChildren(renderCard(
-      recommended, recommended.seasons[selected], data.taiwan[selected], selected, now, 'recommend-copy-'
+      recommended, recommended.seasons[selected], data.taiwan[selected], selected, now
     ));
   };
   const recommend = () => {
-    recommended = pickRecommendation(data.offices, year.value, recommended?.id);
+    recommended = pickRecommendation(sortByCutoff(data.offices, data.taiwan[year.value], year.value), year.value, recommended?.id);
     setRecommendationVisible(true);
     anotherAddress.hidden = !recommended;
     if (recommended) renderRecommendation();
@@ -260,21 +167,13 @@ async function start() {
     setRecommendationVisible(false);
     randomButton.focus();
   });
-  const yearLinks = document.querySelectorAll('[data-year-link]');
   const renderAll = () => {
     const now = new Date();
-    if (search) render(now);
-    else renderTaiwan(data.taiwan[year.value], year.value, now);
+    render(now);
     renderRecommendation(now);
-    for (const link of yearLinks) {
-      const url = new URL(link.href);
-      url.searchParams.set('year', year.value);
-      link.href = url;
-    }
     return taipeiDate.format(now);
   };
   search?.addEventListener('input', () => render());
-  reply?.addEventListener('change', () => render());
   showExpired?.addEventListener('change', () => render());
   year.addEventListener('change', () => {
     const url = new URL(location.href);
@@ -293,6 +192,6 @@ async function start() {
 }
 
 if (typeof document !== 'undefined') start().catch(() => {
-  const message = byId('results') ?? byId('tw-source') ?? byId('archive-cutoff-status');
+  const message = byId('results');
   message.textContent = '資料載入失敗，請重新整理網頁。';
 });

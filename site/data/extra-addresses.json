@@ -1,0 +1,372 @@
+[
+  {
+    "id": "archive-1",
+    "name": "荷蘭・Nuenen",
+    "country": "荷蘭",
+    "keywords": [],
+    "cutoffRegion": "西歐地區",
+    "seasons": {
+      "2026": {
+        "address": [
+          "Sinterklaashof",
+          "Postbus 368",
+          "5670 AJ Nuenen",
+          "NETHERLANDS"
+        ],
+        "restriction": "須附回郵郵票，台灣回郵條件待確認。",
+        "referenceOnly": true
+      }
+    }
+  },
+  {
+    "id": "archive-2",
+    "name": "美國・印第安納州",
+    "country": "美國",
+    "keywords": [],
+    "cutoffRegion": "美國",
+    "seasons": {
+      "2026": {
+        "address": [
+          "Santa Claus",
+          "P.O. Box 1",
+          "Santa Claus, IN 47579",
+          "USA"
+        ],
+        "restriction": "海外回信條件待確認。",
+        "referenceOnly": true
+      }
+    }
+  },
+  {
+    "id": "archive-3",
+    "name": "英國",
+    "country": "英國",
+    "keywords": [],
+    "cutoffRegion": "西歐地區",
+    "seasons": {
+      "2026": {
+        "address": [
+          "Santa/Father Christmas",
+          "Santa’s Grotto",
+          "Reindeerland",
+          "XM4 5HQ",
+          "UNITED KINGDOM"
+        ],
+        "restriction": "台灣回信條件待確認。",
+        "referenceOnly": true
+      }
+    }
+  },
+  {
+    "id": "archive-4",
+    "name": "白俄羅斯",
+    "country": "白俄羅斯",
+    "keywords": [],
+    "cutoffRegion": "東歐地區",
+    "seasons": {
+      "2026": {
+        "address": [
+          "Father Frost",
+          "Father Frost’s Residence",
+          "Kamenyuki village, Kamenetz district, Brest region",
+          "225063 BELARUS"
+        ],
+        "restriction": "海外來信條件待確認。",
+        "referenceOnly": true
+      }
+    }
+  },
+  {
+    "id": "archive-5",
+    "name": "俄羅斯・莫斯科",
+    "country": "俄羅斯",
+    "keywords": [],
+    "cutoffRegion": null,
+    "seasons": {
+      "2026": {
+        "address": [
+          "Московская усадьба Деда Мороза",
+          "Волгоградский проспект, вл. 168Д",
+          "Москва 109472",
+          "RUSSIA"
+        ],
+        "restriction": "海外來信條件待確認。",
+        "referenceOnly": true
+      }
+    }
+  },
+  {
+    "id": "archive-6",
+    "name": "盧森堡・Kleeschen 聖尼古拉",
+    "country": "盧森堡",
+    "keywords": [],
+    "cutoffRegion": "西歐地區",
+    "seasons": {
+      "2026": {
+        "address": [
+          "Kleeschen",
+          "1 Spillstrooss",
+          "L-3290 Am Himmelsland",
+          "LUXEMBOURG"
+        ],
+        "restriction": "台灣寄件條件待確認。",
+        "referenceOnly": true
+      }
+    }
+  },
+  {
+    "id": "archive-7",
+    "name": "德國・Himmelreich",
+    "country": "德國",
+    "keywords": [],
+    "cutoffRegion": "法國、德國",
+    "seasons": {
+      "2026": {
+        "address": [
+          "Weihnachtsmann in Himmelreich, 31535 Neustadt am Rübenberge, Germany"
+        ],
+        "restriction": "舊地址，寄件前請確認收件。",
+        "referenceOnly": true
+      }
+    }
+  },
+  {
+    "id": "archive-8",
+    "name": "德國・Himmelsberg",
+    "country": "德國",
+    "keywords": [],
+    "cutoffRegion": "法國、德國",
+    "seasons": {
+      "2026": {
+        "address": [
+          "Weihnachtsmann, 99706 Himmelsberg, Germany"
+        ],
+        "restriction": "舊地址，寄件前請確認收件。",
+        "referenceOnly": true
+      }
+    }
+  },
+  {
+    "id": "archive-9",
+    "name": "丹麥",
+    "country": "丹麥",
+    "keywords": [],
+    "cutoffRegion": "南、北歐地區",
+    "seasons": {
+      "2026": {
+        "address": [
+          "Julemandens postopsamling 24",
+          "2412 Julebyen"
+        ],
+        "restriction": "台灣寄件條件待確認。",
+        "referenceOnly": true
+      }
+    }
+  },
+  {
+    "id": "archive-10",
+    "name": "比利時",
+    "country": "比利時",
+    "keywords": [],
+    "cutoffRegion": "西歐地區",
+    "seasons": {
+      "2026": {
+        "address": [
+          "Sinterklaas, Spanjestraat 1, B-0612 Hemel, Belgium"
+        ],
+        "restriction": "須使用當地紅色郵筒。下列為舊地址。",
+        "referenceOnly": true
+      }
+    }
+  },
+  {
+    "id": "archive-11",
+    "name": "愛爾蘭",
+    "country": "愛爾蘭",
+    "keywords": [],
+    "cutoffRegion": "西歐地區",
+    "seasons": {
+      "2026": {
+        "address": [
+          "Santa, North Pole, Irland"
+        ],
+        "restriction": "須使用當地郵筒或郵局。下列為舊地址。",
+        "referenceOnly": true
+      }
+    }
+  },
+  {
+    "id": "archive-12",
+    "name": "俄羅斯・大烏斯秋格",
+    "country": "俄羅斯",
+    "keywords": [],
+    "cutoffRegion": null,
+    "seasons": {
+      "2026": {
+        "address": [
+          "Väterchen Frosts Haus (Дед Мороз), 162390 Weliki Ustjug, Oblast Wologda, Russia"
+        ],
+        "restriction": "舊地址，寄件前請確認收件。",
+        "referenceOnly": true
+      }
+    }
+  },
+  {
+    "id": "archive-13",
+    "name": "香港",
+    "country": "香港",
+    "keywords": [],
+    "cutoffRegion": "香港",
+    "seasons": {
+      "2026": {
+        "address": [
+          "香港郵政總部（聖誕老人收），香港中環康樂廣場二號"
+        ],
+        "restriction": "舊總部地址，請勿寄往此址。",
+        "referenceOnly": true
+      }
+    }
+  },
+  {
+    "id": "archive-14",
+    "name": "瑞士",
+    "country": "瑞士",
+    "keywords": [],
+    "cutoffRegion": "中歐地區",
+    "seasons": {
+      "2026": {
+        "address": [
+          "Santa Claus, La Maison du Pere Noel aux Rochers de Naye, Switzerland/SWISS",
+          "Gesù Bambino, Via delle stelle, Paradiso",
+          "Liebes Christkind im Himmel",
+          "Père Noël, pôle Nord"
+        ],
+        "restriction": "舊地址，寄件前請確認收件。",
+        "referenceOnly": true
+      }
+    }
+  },
+  {
+    "id": "archive-15",
+    "name": "挪威・Savalen",
+    "country": "挪威",
+    "keywords": [],
+    "cutoffRegion": "南、北歐地區",
+    "seasons": {
+      "2026": {
+        "address": [
+          "Julenissen i Norge (Santa Claus in Norway), Savalen 2500 Tynset, Norway"
+        ],
+        "restriction": "舊地址，寄件前請確認收件。",
+        "referenceOnly": true
+      }
+    }
+  },
+  {
+    "id": "archive-16",
+    "name": "格陵蘭",
+    "country": "格陵蘭",
+    "keywords": [],
+    "cutoffRegion": null,
+    "seasons": {
+      "2026": {
+        "address": [
+          "Santa Claus, 2412 Nuuk, Greenland",
+          "Santa Claus Nordpolen, Julemandens Postkontor, DK-3900 Nuuk, Greenland"
+        ],
+        "restriction": "舊地址，寄件前請確認收件。",
+        "referenceOnly": true
+      }
+    }
+  },
+  {
+    "id": "archive-17",
+    "name": "紐西蘭",
+    "country": "紐西蘭",
+    "keywords": [],
+    "cutoffRegion": "紐西蘭",
+    "seasons": {
+      "2026": {
+        "address": [
+          "Santa Claus, Santa's Workshop, North Pole 0001, New Zealand"
+        ],
+        "restriction": "回信限當地居民。下列為舊地址。",
+        "referenceOnly": true
+      }
+    }
+  },
+  {
+    "id": "archive-18",
+    "name": "澳洲",
+    "country": "澳洲",
+    "keywords": [],
+    "cutoffRegion": "澳大利亞",
+    "seasons": {
+      "2026": {
+        "address": [
+          "Santa Clause, Christmastown, North Pole, 9999, Australien"
+        ],
+        "restriction": "2026 年須在當地櫃台交信。下列為舊地址。",
+        "referenceOnly": true
+      }
+    }
+  },
+  {
+    "id": "archive-19",
+    "name": "美國・阿拉斯加 Santa Claus House",
+    "country": "美國",
+    "keywords": [],
+    "cutoffRegion": "美國",
+    "seasons": {
+      "2026": {
+        "address": [
+          "Santa Claus, North Pole, Alaska 99705, U.S.A",
+          "Santa Claus, 1 Santa Claus Lane, North Pole, 99705, U.S.A",
+          "Santa Claus, P.O. Box 56009, North Pole, Alaska, 99705-1099, USA"
+        ],
+        "restriction": "付費訂購服務。下列為舊地址。",
+        "referenceOnly": true
+      }
+    }
+  },
+  {
+    "id": "archive-20",
+    "name": "美國・阿拉斯加北極郵戳",
+    "country": "美國",
+    "keywords": [],
+    "cutoffRegion": "美國",
+    "seasons": {
+      "2026": {
+        "address": [
+          "NORTH POLE POSTMARK",
+          "POSTMASTER",
+          "4141 POSTMARK DR",
+          "ANCHORAGE AK 99530-9998",
+          "USA"
+        ],
+        "restriction": "郵戳專用，須自備回信及雙層信封。",
+        "referenceOnly": true
+      }
+    }
+  },
+  {
+    "id": "archive-21",
+    "name": "德國・特別郵戳",
+    "country": "德國",
+    "keywords": [],
+    "cutoffRegion": "法國、德國",
+    "seasons": {
+      "2026": {
+        "address": [
+          "Deutsche Post AG",
+          "Service- und Versandzentrum Weiden",
+          "Sonderstempelstelle",
+          "92627 Weiden",
+          "GERMANY"
+        ],
+        "restriction": "郵戳專用。",
+        "referenceOnly": true
+      }
+    }
+  }
+]
