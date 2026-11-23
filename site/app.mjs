@@ -199,7 +199,16 @@ async function start() {
   document.addEventListener('visibilitychange', refreshDate);
 }
 
-if (typeof document !== 'undefined') start().catch(() => {
-  const message = byId('results');
-  message.textContent = '資料載入失敗，請重新整理網頁。';
-});
+if (typeof document !== 'undefined') {
+  const backToTop = byId('back-to-top');
+  const updateBackToTop = () => {
+    backToTop.hidden = window.scrollY < window.innerHeight / 2;
+  };
+  window.addEventListener('scroll', updateBackToTop, {passive: true});
+  window.addEventListener('resize', updateBackToTop);
+  window.addEventListener('pageshow', updateBackToTop);
+  updateBackToTop();
+  start().catch(() => {
+    byId('results').textContent = '資料載入失敗，請重新整理網頁。';
+  });
+}

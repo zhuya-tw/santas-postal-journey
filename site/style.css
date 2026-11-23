@@ -50,3 +50,6 @@ footer{background:#16392f;color:#fff6e4;padding:1.4rem 0}
 
 .recommendation-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:.8rem}.recommendation-header h2{margin:0}
 
+
+#back-to-top{position:fixed;right:max(1rem,env(safe-area-inset-right));bottom:max(1rem,env(safe-area-inset-bottom));z-index:2;padding:.7rem 1rem;background:#184034;color:#fff;border:1px solid #fffaf0;border-radius:.4rem;box-shadow:0 .2rem .7rem #0003;text-decoration:none}
+#back-to-top:hover{background:#285745}
