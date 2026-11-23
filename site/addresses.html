@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>完整地址清單｜Santa’s Postal Journey</title>
-<link rel="stylesheet" href="./style.css?v=5">
+<link rel="stylesheet" href="./style.css?v=11">
 <style>nav div{flex-wrap:wrap} summary{cursor:pointer} .card p:last-child{margin-bottom:0}</style>
-<script type="module" src="./postage.mjs?v=1"></script>
+<script type="module" src="./app.mjs?v=11"></script>
 </head>
 <body>
 <header><nav class="wrap" aria-label="主要導覽"><a class="brand" href="./">✦ Santa’s Postal Journey</a><div><a href="./#offices">郵局圖鑑</a><a href="./cutoffs.html">台灣截郵</a><a href="./addresses.html" aria-current="page">完整地址清單</a></div></nav></header>
@@ -204,15 +204,17 @@
 </section>
 <section aria-labelledby="tier-4">
 <h2 id="tier-4">先查再寄｜地方或舊地址</h2>
-<div class="grid">
-<article class="card">
+<p>依台灣「聖誕・航空函件」截郵日排序。依序列出尚未截郵、日期待確認及已過截郵的地址。日期為目的地的郵遞參考，地址及收件條件請看各卡片的查核說明。</p>
+<p id="archive-cutoff-status" role="status"></p>
+<div class="grid" id="archive-cutoff-grid">
+<article class="card" data-cutoff-region="西歐地區">
 <h3>盧森堡・Kleeschen 聖尼古拉</h3>
 <p class="meta">2026 境內活動見報，台灣寄件待確認</p>
 <address>Kleeschen<br>1 Spillstrooss<br>L-3290 Am Himmelsland<br>LUXEMBOURG</address>
 <p>當地報導引述 POST Luxembourg 公告，境內可投入黃色郵筒。台灣寄件的投遞與海外回信條件尚待確認。</p>
 <p><a href="https://chronicle.lu/category/at-home/64534-post-luxembourg-opens-st-nicholas-letter-service-home-from-home-to-follow">2026 當地報導</a></p>
 </article>
-<article class="card">
+<article class="card" data-cutoff-region="法國、德國">
 <h3>德國・Himmelreich</h3>
 <p>當地郵政業者 CITIPOST 公布可寄到 31535 Neustadt。2026 年接受台灣寄件及回郵條件尚待確認。</p>
 <p><a href="https://hannover.citipost.de/briefe-an-den-weihnachtsmann-in-himmelreich/">CITIPOST 地址公告</a></p>
@@ -223,7 +225,7 @@
 <ul><li>Weihnachtsmann in Himmelreich, 31535 Neustadt am Rübenberge, Germany</li></ul></details>
 <p><a href="https://www.neustadt-a-rbge.de/rathaus/pressestelle/presse-archiv/2024/november/wunschzettel-aktion/">查核來源</a></p>
 </article>
-<article class="card">
+<article class="card" data-cutoff-region="法國、德國">
 <h3>德國・Himmelsberg</h3>
 <p class="meta">地方回信紀錄，2026 待確認</p>
 
@@ -232,7 +234,7 @@
 <ul><li>Weihnachtsmann, 99706 Himmelsberg, Germany</li></ul></details>
 <p><a href="https://www.sondershausen.de/details/weihnachtsmannb%C3%BCro-in-himmelsberg-%C3%B6ffnet-seine-pforten.html">查核來源</a></p>
 </article>
-<article class="card">
+<article class="card" data-cutoff-region="南、北歐地區">
 <h3>丹麥</h3>
 <p class="meta">今年有新地址，海外寄件待確認</p>
 <address data-postage-country="丹麥">Julemandens postopsamling 24<br>2412 Julebyen</address>
@@ -241,7 +243,7 @@
 <ul><li>Julemanden, Julemandens Postcenter 24, 0900 København C</li></ul></details>
 <p><a href="https://kontakt.dao.as/hc/da/articles/39871477152669-Hvor-bor-Julemanden">查核來源</a></p>
 </article>
-<article class="card">
+<article class="card" data-cutoff-region="西歐地區">
 <h3>比利時</h3>
 <p class="meta">官方指示使用當地紅色郵筒</p>
 
@@ -250,7 +252,7 @@
 <ul><li>Sinterklaas, Spanjestraat 1, B-0612 Hemel, Belgium</li></ul></details>
 <p><a href="https://www.bpost.be/fr/saintnicolis">查核來源</a></p>
 </article>
-<article class="card">
+<article class="card" data-cutoff-region="西歐地區">
 <h3>愛爾蘭</h3>
 <p class="meta">官方指示使用當地郵筒或郵局</p>
 
@@ -268,7 +270,7 @@
 <ul><li>Väterchen Frosts Haus (Дед Мороз), 162390 Weliki Ustjug, Oblast Wologda, Russia</li></ul></details>
 <p><a href="https://new.dom-dm.ru/kontakty/">查核來源</a></p>
 </article>
-<article class="card">
+<article class="card" data-cutoff-region="香港">
 <h3>香港</h3>
 <p class="meta">舊總部地址，2026 收件地址待確認</p>
 
@@ -277,7 +279,7 @@
 <ul><li>香港郵政總部（聖誕老人收），香港中環康樂廣場二號</li></ul></details>
 <p><a href="https://tel.directory.gov.hk/PO_ENG.html">查核來源</a></p>
 </article>
-<article class="card">
+<article class="card" data-cutoff-region="中歐地區">
 <h3>瑞士</h3>
 <p class="meta">舊地址或當地郵路寫法</p>
 
@@ -286,7 +288,7 @@
 <ul><li>Santa Claus, La Maison du Pere Noel aux Rochers de Naye, Switzerland/SWISS</li><li>Gesù Bambino, Via delle stelle, Paradiso</li><li>Liebes Christkind im Himmel</li><li>Père Noël, pôle Nord</li></ul></details>
 <p><a href="https://www.montreuxnoel.com/attraction/la-maison-du-pere-noel/">查核來源</a></p>
 </article>
-<article class="card">
+<article class="card" data-cutoff-region="南、北歐地區">
 <h3>挪威・Savalen</h3>
 <p class="meta">景點仍在，收信地址待確認</p>
 

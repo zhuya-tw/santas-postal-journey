@@ -171,12 +171,44 @@ export function pickRecommendation(offices, year, previousId, random = Math.rand
   return pool[Math.floor(random() * pool.length)];
 }
 
+function renderHistoricalAddresses(grid, year, taiwan) {
+  const offices = [...grid.children].map(card => {
+    const cutoffRegion = card.dataset.cutoffRegion;
+    const placeholder = element('div');
+
+    card.querySelector('.meta').after(placeholder);
+    return {card, placeholder, cutoffRegion, cutoffRegional: cutoffRegion?.endsWith('地區')};
+  });
+  let renderedDate;
+  const refresh = () => {
+    const now = new Date();
+    const today = taipeiDate.format(now);
+    if (today === renderedDate) return;
+    renderedDate = today;
+    for (const office of sortByCutoff(offices, taiwan, year, true, now)) {
+      const cutoff = renderCutoff(office, taiwan, year, now);
+      office.placeholder.replaceWith(cutoff);
+      office.placeholder = cutoff;
+      grid.append(office.card);
+    }
+  };
+  refresh();
+  window.setInterval(refresh, 60_000);
+  document.addEventListener('visibilitychange', refresh);
+}
+
 async function start() {
   const response = await fetch('./data/catalog.json', {cache: 'no-cache'});
   if (!response.ok) throw new Error('Catalog unavailable');
   const data = await response.json();
   const year = byId('year');
   const current = taipeiDate.format(new Date()).slice(0, 4);
+  const archiveGrid = byId('archive-cutoff-grid');
+  if (archiveGrid) {
+
+    renderHistoricalAddresses(archiveGrid, current, data.taiwan[current]);
+    return;
+  }
   const years = [...new Set([current, ...Object.keys(data.taiwan),
     ...data.offices.flatMap(office => Object.keys(office.seasons))])].sort().reverse();
   const requested = new URL(location.href).searchParams.get('year');
@@ -261,6 +293,6 @@ async function start() {
 }
 
 if (typeof document !== 'undefined') start().catch(() => {
-  const message = byId('results') ?? byId('tw-source');
+  const message = byId('results') ?? byId('tw-source') ?? byId('archive-cutoff-status');
   message.textContent = '資料載入失敗，請重新整理網頁。';
 });
