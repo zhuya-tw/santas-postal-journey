@@ -31,9 +31,8 @@ export function sortByCutoff(offices, taiwan, year, showExpired = false, now = n
     .map(entry => entry.office);
 }
 
-export function matches(office, season, query, reply, {shipping, activity} = {}) {
+export function matches(office, season, query, reply, {shipping} = {}) {
   if (shipping && (season?.shipping ?? 'check') !== shipping) return false;
-  if (activity && (season?.activity ?? 'pending') !== activity) return false;
   const visible = [office.country, office.name, ...office.keywords, ...(season?.address ?? [])];
   return (!reply || season?.replyType === reply) &&
     normalize(query).split(/\s+/).every(term => normalize(visible.join(' ')).includes(term));
@@ -127,10 +126,9 @@ async function start() {
   year.value = years.includes(requested) ? requested : current;
   const showExpired = byId('show-expired');
   const shipping = byId('shipping');
-  const activity = byId('activity');
   const render = (now = new Date()) => {
     const query = byId('search').value;
-    const filters = {shipping: shipping.value, activity: activity.value};
+    const filters = {shipping: shipping.value};
     const matching = data.offices.filter(office => {
       const season = office.seasons[year.value];
       return season && matches(office, season, query, '', filters);
@@ -182,7 +180,7 @@ async function start() {
     return taipeiDate.format(now);
   };
   search?.addEventListener('input', () => render());
-  for (const control of [showExpired, shipping, activity]) {
+  for (const control of [showExpired, shipping]) {
     control.addEventListener('change', () => render());
   }
   year.addEventListener('change', () => {

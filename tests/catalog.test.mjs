@@ -59,11 +59,10 @@ test('countdown rolls over at midnight in Taiwan and labels past seasons', () =>
   assert.equal(cutoffStatus('2025-11-21', new Date('2026-11-19T16:00:00Z')), '歷年資料');
 });
 
-test('shipping and annual activity filters combine with search', () => {
-  const season = {address: ['Santa'], shipping: 'recommended', activity: 'announced'};
-  assert(matches(canada, season, '加拿大', '', {shipping: 'recommended', activity: 'announced'}));
-  assert(!matches(canada, season, '加拿大', '', {shipping: 'check', activity: 'announced'}));
-  assert(!matches(canada, season, '加拿大', '', {activity: 'pending'}));
-  assert(!matches(canada, season, '芬蘭', '', {activity: 'announced'}));
-  assert(matches(canada, {}, '', '', {shipping: 'check', activity: 'pending'}));
+test('shipping filter combines with search', () => {
+  const season = {address: ['Santa'], shipping: 'recommended'};
+  assert(matches(canada, season, '加拿大', '', {shipping: 'recommended'}));
+  assert(!matches(canada, season, '加拿大', '', {shipping: 'check'}));
+  assert(!matches(canada, season, '芬蘭', '', {shipping: 'recommended'}));
+  assert(matches(canada, {}, '', '', {shipping: 'check'}));
 });
